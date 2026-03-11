@@ -1,0 +1,2140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vincenzo Baccaro — Curriculum Vitae</title> 
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"}}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ═══════════ RESET & ROOT ═══════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --green:#16a34a;--green-l:#22c55e;--green-d:#14532d;
+  --blue:#2563eb;--blue-l:#3b82f6;--blue-d:#1e3a8a;
+  --white:#ffffff;--off:#f8fafc;
+  --text:#1e293b;--muted:#64748b;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;cursor:none;background:#fff;}
+
+/* ═══════════ CUSTOM CURSOR ═══════════ */
+#cur{position:fixed;width:14px;height:14px;border-radius:50%;
+  background:var(--green);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);mix-blend-mode:multiply;
+  transition:width .2s,height .2s,background .3s;}
+#cur-ring{position:fixed;width:44px;height:44px;border-radius:50%;
+  border:2px solid var(--blue);opacity:.6;pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);transition:left .08s,top .08s,width .2s,height .2s,border-color .3s;}
+
+/* ═══════════ PROGRESS BAR ═══════════ */
+#pbar{position:fixed;top:0;left:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--green),var(--blue));z-index:8000;transition:width .08s linear;}
+
+/* ═══════════ NAV ═══════════ */
+nav{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;gap:4px;padding:9px 16px;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(20px);
+  border:1px solid rgba(0,0,0,.08);border-radius:50px;
+  box-shadow:0 8px 40px rgba(0,0,0,.12);z-index:7000;}
+nav a{display:inline-flex;align-items:center;gap:5px;
+  color:var(--muted);text-decoration:none;font-size:.72rem;
+  font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:7px 14px;border-radius:50px;transition:.3s;}
+nav a:hover,nav a.on{color:#fff;}
+nav a.nav-geo{background:var(--green);}
+nav a.nav-dev{background:var(--blue);}
+nav a.nav-dark{background:#374151;}
+
+/* ═══════════ LANG SWITCHER ═══════════ */
+#lang-sw{
+  position:fixed;top:18px;right:18px;z-index:7100;
+  display:flex;gap:5px;padding:6px 10px;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(20px);
+  border:1px solid rgba(0,0,0,.08);border-radius:50px;
+  box-shadow:0 4px 20px rgba(0,0,0,.1);
+}
+.lb{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:5px 10px;border-radius:50px;border:none;
+  font-size:.65rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);background:transparent;cursor:none;transition:.25s;
+}
+.lb:hover{background:rgba(0,0,0,.07);color:var(--text);}
+.lb.active{background:var(--green);color:#fff;}
+@media(max-width:600px){
+  #lang-sw{top:auto;bottom:80px;right:12px;padding:5px 8px;}
+  .lb{padding:4px 8px;font-size:.6rem;}
+}
+
+/* ═══════════ SECTIONS ═══════════ */
+section{
+  min-height:100vh;width:100%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:100px 24px;
+}
+
+/* ═══════════ REVEAL ═══════════ */
+.reveal{opacity:0;transform:translateY(60px) scale(.94);
+  transition:opacity .8s cubic-bezier(.22,.68,0,1.2),transform .8s cubic-bezier(.22,.68,0,1.2);}
+.reveal-l{opacity:0;transform:translateX(-70px);
+  transition:opacity .8s ease,transform .8s cubic-bezier(.22,.68,0,1.2);}
+.reveal-r{opacity:0;transform:translateX(70px);
+  transition:opacity .8s ease,transform .8s cubic-bezier(.22,.68,0,1.2);}
+.reveal-zoom{opacity:0;transform:scale(.7) rotate(-3deg);
+  transition:opacity .9s ease,transform .9s cubic-bezier(.22,.68,0,1.4);}
+.show{opacity:1!important;transform:none!important;}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* ═══════════ SHARED TYPO ═══════════ */
+.eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;}
+.sec-h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:22px;}
+
+/* ══════════════════════════════════════════════
+   § 0 — HERO (dark photo)
+══════════════════════════════════════════════ */
+#s0{display:block;padding:0;min-height:100vh;position:relative;overflow:hidden;}
+
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:72% center;}
+.hero-grad-main{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(10,14,20,.92) 0%,rgba(10,14,20,.65) 55%,rgba(10,14,20,.18) 100%);
+}
+.hero-grad-bottom{
+  position:absolute;bottom:0;left:0;right:0;height:35%;
+  background:linear-gradient(to top,rgba(10,14,20,.95),transparent);
+}
+
+.hero-content{
+  position:relative;z-index:1;
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:120px 6vw 80px;max-width:760px;
+}
+
+
+
+.hero-name{
+  font-size:clamp(3rem,9vw,6.8rem);font-weight:900;line-height:.95;letter-spacing:-.03em;
+  color:#fff;margin-bottom:18px;
+}
+.hero-name span{
+  background:linear-gradient(135deg,var(--green-l),var(--blue-l));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-desc{font-size:clamp(.95rem,2vw,1.2rem);color:rgba(255,255,255,.65);
+  font-weight:400;line-height:1.7;margin-bottom:10px;max-width:520px;}
+.hero-loc{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.5);
+  font-weight:600;font-size:.88rem;margin-bottom:36px;}
+
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;margin-bottom:40px;}
+.hero-stat{padding:0 28px 0 0;margin-right:28px;
+  border-right:1px solid rgba(255,255,255,.15);}
+.hero-stat:last-child{border-right:none;padding-right:0;margin-right:0;}
+.stat-num{font-size:2.1rem;font-weight:900;line-height:1;}
+.sng{color:var(--green-l)}.snb{color:var(--blue-l)}
+.stat-label{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.38);
+  text-transform:uppercase;letter-spacing:.09em;margin-top:3px;}
+
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:800;cursor:none;
+  border:2px solid transparent;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.3s;}
+.btn-g{background:var(--green);color:#fff;box-shadow:0 6px 24px rgba(22,163,74,.3);}
+.btn-g:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 36px rgba(22,163,74,.45);}
+.btn-b{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(8px);}
+.btn-b:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-3px);}
+
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,.35);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  animation:arrowBounce 2s ease-in-out infinite;}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(255,255,255,.4);
+  border-bottom:2px solid rgba(255,255,255,.4);transform:rotate(45deg);}
+@keyframes arrowBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+
+/* ═══════════ HERO → CV HORIZONTAL SLIDE ═══════════ */
+#hero-slide-zone{
+  height:200vh;position:relative;overflow:visible;
+}
+#hero-slide-sticky{
+  position:sticky;top:0;width:100%;height:100vh;overflow:hidden;
+}
+#hero-slide-track{
+  display:flex;width:200vw;height:100vh;
+}
+#hero-slide-track > .hs-panel{
+  width:100vw;height:100vh;flex-shrink:0;position:relative;
+}
+
+/* Transition panel */
+.hs-transition{
+  background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#162032 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px;
+}
+.hs-transition .hs-eyebrow{
+  font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:20px;
+}
+.hs-transition .hs-big{
+  font-family:'Playfair Display',serif;font-weight:400;font-style:italic;
+  font-size:clamp(2.5rem,6vw,5rem);color:#fff;line-height:1.1;margin-bottom:28px;
+}
+.hs-transition .hs-big em{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--green-l),var(--blue-l));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hs-transition .hs-sub{
+  font-size:1.05rem;color:rgba(255,255,255,.45);font-weight:300;line-height:1.8;
+  max-width:500px;
+}
+.hs-transition .hs-arrow-down{
+  margin-top:40px;width:30px;height:30px;
+  border-right:2px solid rgba(255,255,255,.25);
+  border-bottom:2px solid rgba(255,255,255,.25);
+  transform:rotate(45deg);
+  animation:arrowBounce 2s ease-in-out infinite;
+}
+
+/* slide progress indicator */
+.hs-progress-dots{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  display:flex;gap:10px;z-index:10;
+}
+.hs-dot{
+  width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);
+  transition:.3s;
+}
+.hs-dot.active{background:#fff;transform:scale(1.3);}
+
+/* ══════════════════════════════════════════════
+   § 1 — CHI SONO
+══════════════════════════════════════════════ */
+#s1{background:linear-gradient(160deg,#0f172a 0%,#1e293b 60%,#162032 100%);color:#fff;}
+
+.about-wrap{max-width:1100px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+@media(max-width:768px){.about-wrap{grid-template-columns:1fr;}}
+
+.about-text p{color:rgba(255,255,255,.68);line-height:1.9;margin-bottom:16px;}
+.about-text strong{color:#fff;}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;}
+.info-tile{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:16px 18px;transition:.3s;}
+.info-tile:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);}
+.tile-icon{font-size:1.3rem;margin-bottom:5px;}
+.tile-label{font-size:.63rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;}
+.tile-val{font-size:.88rem;font-weight:700;color:#fff;margin-top:2px;}
+
+.area-list{display:flex;flex-direction:column;gap:10px;margin-top:22px;}
+.area-item{display:flex;align-items:center;gap:14px;padding:14px 18px;
+  border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:.3s;}
+.area-item:hover{background:rgba(255,255,255,.09);transform:translateX(7px);}
+.ai-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.aig{background:rgba(34,197,94,.2)}.aib{background:rgba(59,130,246,.2)}
+.ai-title{font-weight:700;font-size:.88rem;color:#fff;}
+.ai-desc{font-size:.73rem;color:rgba(255,255,255,.45);margin-top:2px;}
+
+/* ══════════════════════════════════════════════
+   § 2 — GEOMETRA GALLERY (3D)
+══════════════════════════════════════════════ */
+#s2{
+  height:600vh;position:relative;background:#f7f7f5;
+  padding:0;min-height:auto;display:block;overflow:visible;
+}
+.geo-sticky{position:sticky;top:0;width:100%;height:100vh;overflow:hidden;}
+#geo-canvas-container{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+#geo-ui-layer{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;}
+.geo-logo{
+  position:absolute;top:40px;left:50px;
+  font-family:'Playfair Display',serif;font-weight:700;
+  letter-spacing:2px;font-size:1rem;text-transform:uppercase;z-index:10;color:#111;
+}
+.geo-slide{
+  position:absolute;top:18%;left:8%;width:30%;max-width:450px;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .8s ease,transform .8s ease-out;pointer-events:auto;
+}
+.geo-slide.active{opacity:1;transform:translateY(0);}
+.geo-slide h2{
+  font-family:'Playfair Display',serif;font-weight:400;font-style:italic;
+  font-size:clamp(2.5rem,4vw,4rem);margin:0 0 1rem;line-height:1;color:#0d0d0d;
+}
+.geo-catalogue{
+  font-size:.7rem;text-transform:uppercase;letter-spacing:3px;color:#999;
+  margin-bottom:1.2rem;display:inline-block;border-bottom:1px solid #ddd;padding-bottom:5px;
+}
+.geo-desc{
+  font-family:'Lato','Segoe UI',sans-serif;font-size:1rem;font-weight:300;
+  line-height:1.8;color:#444;margin-bottom:1.5rem;text-align:justify;
+}
+.geo-meta{
+  display:grid;grid-template-columns:80px 1fr;row-gap:.8rem;
+  border-top:1px solid #e0e0e0;padding-top:1.2rem;margin-bottom:1.2rem;
+}
+.geo-ml{font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:#888;align-self:center;}
+.geo-mv{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:#222;}
+.geo-anim-box{margin-top:12px;border-radius:10px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.15);max-width:300px;}
+.geo-scroll-hint{
+  position:absolute;bottom:40px;left:50px;
+  font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:#aaa;z-index:10;
+}
+@media(max-width:900px){
+  .geo-slide{width:85%;max-width:none;left:5%;top:8%;}
+  .geo-logo{top:20px;left:20px;font-size:.8rem;}
+  .geo-scroll-hint{bottom:20px;left:20px;}
+}
+
+/* ─── Mini CAD (AutoCAD) ─── */
+.cad-mini{background:#0a1220;border-radius:9px;overflow:hidden;font-family:'Courier New',monospace;}
+.cad-mini-bar{background:#151f2e;padding:5px 8px;display:flex;gap:4px;align-items:center;}
+.cad-mini-canvas{height:80px;position:relative;background:#0a1220;overflow:hidden;}
+.cad-mini-canvas::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(67,97,238,.14) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(67,97,238,.14) 1px,transparent 1px);
+  background-size:13px 13px;}
+.cad-mini-svg{position:absolute;inset:0;width:100%;height:100%;}
+.cad-mini-cur{position:absolute;transform:translate(-50%,-50%);
+  animation:miniCadMove 3s ease-in-out infinite;}
+.cad-mini-cur::before,.cad-mini-cur::after{content:'';position:absolute;background:#00d4ff;}
+.cad-mini-cur::before{width:9px;height:1px;top:50%;left:50%;transform:translate(-50%,-50%);}
+.cad-mini-cur::after{width:1px;height:9px;top:50%;left:50%;transform:translate(-50%,-50%);}
+@keyframes miniCadMove{0%{top:58%;left:28%}33%{top:28%;left:58%}66%{top:50%;left:73%}100%{top:58%;left:28%}}
+.cad-mini-cmd{background:#0d1117;padding:3px 7px;font-size:.54rem;color:#00d4ff;}
+
+/* ─── ProgeCAD ─── */
+.pcad-box{background:#0e1b2d;border-radius:9px;overflow:hidden;}
+.pcad-bar{background:#152235;padding:5px 8px;display:flex;gap:4px;align-items:center;}
+.pcad-body{height:80px;background:#0a1520;position:relative;overflow:hidden;}
+.pcad-body::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(22,163,74,.12) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(22,163,74,.12) 1px,transparent 1px);
+  background-size:11px 11px;}
+.pcad-svg{position:absolute;inset:0;width:100%;height:100%;}
+.pcad-cur{position:absolute;transform:translate(-50%,-50%);animation:pcadMove 3.5s ease-in-out infinite;}
+.pcad-cur::before{content:'+';color:#22c55e;font-size:11px;font-family:monospace;}
+@keyframes pcadMove{0%{top:50%;left:40%}30%{top:25%;left:65%}60%{top:65%;left:55%}100%{top:50%;left:40%}}
+.pcad-cmd{background:#050e19;padding:3px 7px;font-size:.54rem;color:#22c55e;font-family:'Courier New',monospace;}
+
+/* ─── ArchiCAD ─── */
+.archicad-box{background:#1a1a2e;border-radius:9px;overflow:hidden;}
+.archicad-bar{background:#2a2a45;padding:5px 8px;display:flex;align-items:center;gap:6px;}
+.archicad-logo{width:15px;height:15px;border-radius:4px;background:linear-gradient(135deg,#e74c3c,#c0392b);
+  display:flex;align-items:center;justify-content:center;font-size:.48rem;color:#fff;font-weight:900;}
+.archicad-canvas{height:80px;background:#12122a;position:relative;overflow:hidden;}
+.archicad-svg{position:absolute;inset:0;width:100%;height:100%;}
+.archicad-blink{stroke-dasharray:300;stroke-dashoffset:300;animation:wallDraw 2.5s ease-in-out infinite;}
+@keyframes wallDraw{0%,100%{stroke-dashoffset:300}60%{stroke-dashoffset:0}}
+.archicad-cur3d{position:absolute;animation:cur3d 3s ease-in-out infinite;transform:translate(-50%,-50%);}
+.archicad-cur3d::before{content:'✛';color:#e74c3c;font-size:11px;}
+@keyframes cur3d{0%{top:55%;left:35%}40%{top:30%;left:60%}70%{top:65%;left:70%}100%{top:55%;left:35%}}
+.archicad-cmd{background:#0d0d1e;padding:3px 7px;font-size:.54rem;color:#e74c3c;font-family:'Courier New',monospace;}
+
+/* ─── Edificius ─── */
+.edif-box{background:#0d1f0d;border-radius:9px;overflow:hidden;}
+.edif-bar{background:#152515;padding:5px 8px;display:flex;align-items:center;gap:5px;}
+.edif-logo{width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#22c55e,#16a34a);
+  display:flex;align-items:center;justify-content:center;font-size:.44rem;color:#fff;font-weight:900;}
+.edif-canvas{height:80px;background:#0a1a0a;position:relative;overflow:hidden;}
+.edif-svg{position:absolute;inset:0;width:100%;height:100%;}
+.edif-fly{position:absolute;animation:edificiusFly 3s ease-in-out infinite;font-size:10px;}
+@keyframes edificiusFly{0%{top:68%;left:18%;opacity:.5}50%{top:28%;left:58%;opacity:1}100%{top:68%;left:18%;opacity:.5}}
+.edif-cmd{background:#060e06;padding:3px 7px;font-size:.54rem;color:#22c55e;font-family:'Courier New',monospace;}
+
+/* ─── Canva ─── */
+.canva-box{background:#fff;border-radius:9px;overflow:hidden;border:1px solid rgba(0,0,0,.07);}
+.canva-top{background:#8b5cf6;padding:6px 10px;display:flex;align-items:center;gap:7px;}
+.canva-logo{width:17px;height:17px;border-radius:4px;background:#fff;
+  display:flex;align-items:center;justify-content:center;}
+.canva-logo-inner{width:9px;height:9px;border-radius:50%;background:#8b5cf6;}
+.canva-canvas{height:72px;background:#f3f4f6;position:relative;overflow:hidden;padding:7px;}
+.canva-el{position:absolute;border-radius:5px;animation:canvaFloat 2.5s ease-in-out infinite;}
+.ce1{width:52px;height:20px;background:#fbbf24;top:10px;left:8px;}
+.ce2{width:36px;height:36px;border-radius:50%;background:#8b5cf6;opacity:.7;top:18px;left:68px;animation-delay:.4s;}
+.ce3{width:56px;height:14px;background:#34d399;top:42px;left:12px;animation-delay:.8s;}
+.ce4{width:20px;height:20px;background:#f87171;top:8px;left:122px;animation-delay:.2s;}
+@keyframes canvaFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.canva-bottom{padding:4px 8px;font-size:.54rem;color:#374151;background:#fff;border-top:1px solid #e5e7eb;}
+
+/* ─── Tooltip codice (dev skills) ─── */
+.code-box{background:#1e1e2e;border-radius:9px;overflow:hidden;}
+.code-bar{background:#171728;padding:5px 8px;display:flex;align-items:center;gap:4px;}
+.cdot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+.cd-r{background:#ff5f57}.cd-y{background:#febc2e}.cd-g{background:#28c840}
+.code-canvas{padding:8px;height:80px;overflow:hidden;font-family:'Courier New',monospace;font-size:.57rem;line-height:1.65;}
+.cl{white-space:pre;overflow:hidden;width:0;animation:typeIn .4s forwards;}
+@keyframes typeIn{to{width:100%}}
+.kw{color:#c792ea}.fn{color:#82aaff}.cm{color:#546e7a;font-style:italic}.str{color:#c3e88d}.num{color:#f78c6c}
+
+/* ─── HTML tooltip ─── */
+.html-box{background:#1e1e2e;border-radius:9px;overflow:hidden;}
+.html-preview{padding:8px;height:80px;overflow:hidden;font-family:'Courier New',monospace;font-size:.56rem;line-height:1.65;}
+.ht{color:#f07178}.ha{color:#c792ea}.hv{color:#c3e88d}.htxt{color:#cdd6f4}
+.html-bar{background:#e34c26;padding:3px 8px;font-size:.54rem;color:#fff;font-family:'Segoe UI',sans-serif;font-weight:700;}
+
+/* ─── CSS tooltip ─── */
+.css-box{background:#1e1e2e;border-radius:9px;overflow:hidden;}
+.css-preview{padding:8px;height:80px;overflow:hidden;font-family:'Courier New',monospace;font-size:.56rem;line-height:1.65;}
+.cs{color:#82aaff}.cp{color:#c792ea}.cv{color:#c3e88d}.cunit{color:#f78c6c}
+.css-bar{background:#264de4;padding:3px 8px;font-size:.54rem;color:#fff;font-family:'Segoe UI',sans-serif;font-weight:700;}
+
+/* ─── toolbar dot helper ─── */
+.tdot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+
+
+
+/* ══════════════════════════════════════════════
+   § 3 — DEVELOPER · NEURAL NEXUS (scroll-driven 3D)
+══════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+#s3{
+  height:800vh;position:relative;background:#000;
+  padding:0;min-height:auto;display:block;overflow:visible;
+}
+.nn-sticky{position:sticky;top:0;width:100%;height:100vh;overflow:hidden;}
+#nn-container{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+#nn-ui-layer{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;}
+
+/* Overlays */
+.nn-grid-overlay{
+  position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.05;z-index:3;
+  background-image:
+    linear-gradient(rgba(0,255,255,.1) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,255,.1) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:nnGridShift 15s linear infinite;
+}
+@keyframes nnGridShift{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
+
+
+
+.nn-circuit{
+  position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.08;z-index:3;
+  background-image:
+    linear-gradient(45deg,transparent 40%,rgba(0,255,255,.15) 41%,rgba(0,255,255,.15) 42%,transparent 43%),
+    linear-gradient(-45deg,transparent 40%,rgba(0,136,255,.15) 41%,rgba(0,136,255,.15) 42%,transparent 43%);
+  background-size:180px 180px;
+  animation:nnCircuit 12s linear infinite;
+}
+@keyframes nnCircuit{0%{background-position:0 0,0 0}100%{background-position:180px 180px,-180px 180px}}
+
+/* Language slides */
+.nn-slide{
+  position:absolute;top:0;left:0;width:100%;height:100%;z-index:5;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .5s ease,transform .5s ease;
+  pointer-events:none;padding:40px;
+}
+.nn-slide.active{opacity:1;transform:translateY(0);pointer-events:auto;}
+
+.nn-slide-inner{
+  max-width:680px;width:100%;text-align:center;
+}
+
+/* HUD badge */
+.nn-hud{
+  position:absolute;top:16px;left:16px;z-index:10;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--nn-color,#00ffff);
+  text-transform:uppercase;letter-spacing:1px;
+  background:rgba(0,0,0,.6);padding:10px 15px;border-radius:15px;
+  border:1px solid rgba(0,255,255,.2);
+  backdrop-filter:blur(20px);
+  box-shadow:0 0 15px rgba(0,255,255,.2),inset 0 1px 0 rgba(0,255,255,.15);
+  transition:color .6s,border-color .6s,box-shadow .6s;
+}
+.nn-hud-line{display:flex;justify-content:space-between;gap:10px;margin:2px 0;align-items:center;}
+.nn-hud-val{font-weight:500;text-shadow:0 0 8px currentColor;}
+
+/* Performance bars */
+.nn-perf{
+  position:absolute;top:16px;right:16px;z-index:10;
+  display:flex;flex-direction:column;gap:5px;
+}
+.nn-perf-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--nn-color,#00ffff);text-transform:uppercase;letter-spacing:1px;}
+.nn-perf-bar{width:100px;height:3px;background:rgba(0,0,0,.6);border:1px solid var(--nn-color,#00ffff);position:relative;overflow:hidden;}
+.nn-perf-bar::before{content:'';position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--nn-color,#00ffff),#fff,var(--nn-color,#00ffff));animation:nnPerfPulse 1.8s ease-in-out infinite;}
+@keyframes nnPerfPulse{0%,100%{opacity:.7}50%{opacity:1}}
+.nn-perf-bar.nn-cpu::before{width:70%}
+.nn-perf-bar.nn-gpu::before{width:85%}
+.nn-perf-bar.nn-mem::before{width:55%}
+
+/* Language info card */
+.nn-lang-card{
+  background:rgba(0,0,0,.55);backdrop-filter:blur(30px);
+  border:1px solid rgba(255,255,255,.1);border-radius:24px;
+  padding:48px 40px;position:relative;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.nn-lang-card::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--nn-color,#00ffff),transparent);
+  animation:nnCardSweep 3.5s linear infinite;
+}
+.nn-lang-card::after{
+  content:'';position:absolute;bottom:0;right:-100%;width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--nn-color,#00ffff),transparent);
+  animation:nnCardSweep 3.5s linear infinite reverse;
+}
+@keyframes nnCardSweep{0%{left:-100%}100%{left:100%}}
+
+.nn-lang-icon{font-size:3.5rem;margin-bottom:12px;display:block;filter:drop-shadow(0 0 20px var(--nn-color,#00ffff));}
+.nn-lang-name{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3.5rem);
+  color:#fff;letter-spacing:4px;text-transform:uppercase;
+  text-shadow:0 0 30px var(--nn-color,#00ffff),0 0 60px var(--nn-color,#00ffff);
+  margin-bottom:8px;transition:text-shadow .6s;
+}
+.nn-lang-type{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;
+  color:var(--nn-color,#00ffff);text-transform:uppercase;letter-spacing:3px;
+  margin-bottom:24px;transition:color .6s;
+}
+.nn-lang-bar{height:4px;background:rgba(255,255,255,.1);border-radius:99px;margin:0 auto 24px;max-width:300px;overflow:hidden;}
+.nn-lang-fill{height:100%;border-radius:99px;width:0;background:var(--nn-color,#00ffff);transition:width 1.4s cubic-bezier(.22,.68,0,1.2),background .6s;}
+.nn-lang-desc{
+  color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.7;
+  max-width:480px;margin:0 auto;
+  font-family:'Space Grotesk',sans-serif;
+}
+.nn-lang-desc .nn-tw-cursor{
+  display:inline-block;width:2px;height:1em;background:var(--nn-color,#00ffff);
+  margin-left:2px;vertical-align:text-bottom;
+  animation:nnBlink .6s step-end infinite;
+}
+@keyframes nnBlink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Code snippet inside card */
+.nn-code{
+  background:#0a0a1a;border-radius:12px;overflow:hidden;margin-top:24px;text-align:left;
+  border:1px solid rgba(255,255,255,.06);
+}
+.nn-code-bar{background:rgba(255,255,255,.04);padding:6px 10px;display:flex;align-items:center;gap:5px;}
+.nn-code-body{padding:10px 12px;font-family:'JetBrains Mono','Courier New',monospace;font-size:.7rem;line-height:1.7;color:#cdd6f4;max-height:120px;overflow:hidden;}
+.nn-code .kw{color:#c792ea}.nn-code .fn{color:#82aaff}.nn-code .cm{color:#546e7a;font-style:italic}
+.nn-code .str{color:#c3e88d}.nn-code .num{color:#f78c6c}
+.nn-code .ht{color:#f07178}.nn-code .ha{color:#c792ea}.nn-code .hv{color:#c3e88d}
+.nn-code .cs{color:#82aaff}.nn-code .cp{color:#c792ea}.nn-code .cv{color:#c3e88d}
+
+/* Intro slide (university) */
+.nn-intro-card{
+  background:rgba(0,0,0,.55);backdrop-filter:blur(30px);
+  border:1px solid rgba(255,255,255,.1);border-radius:24px;
+  padding:48px 40px;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.nn-intro-icon{font-size:3rem;margin-bottom:16px;}
+.nn-intro-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:700;color:#fff;letter-spacing:2px;margin-bottom:8px;}
+.nn-intro-uni{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:20px;font-family:'Space Grotesk',sans-serif;}
+.nn-intro-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.nn-badge{
+  display:inline-block;padding:5px 16px;border-radius:50px;font-size:.7rem;font-weight:700;
+  font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;
+  border:1px solid rgba(0,255,255,.3);color:var(--nn-color,#00ffff);
+  background:rgba(0,255,255,.08);transition:color .6s,border-color .6s,background .6s;
+}
+
+/* Scroll indicator */
+.nn-scroll-hint{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:10;
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.3);
+  text-transform:uppercase;letter-spacing:2px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.nn-scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(255,255,255,.3);border-bottom:2px solid rgba(255,255,255,.3);transform:rotate(45deg);animation:arrowBounce 2s ease-in-out infinite;}
+
+/* Progress dots */
+.nn-dots{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:10;
+  display:flex;flex-direction:column;gap:8px;
+}
+.nn-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);transition:.4s;cursor:pointer;pointer-events:auto;}
+.nn-dot.active{background:var(--nn-color,#00ffff);transform:scale(1.4);box-shadow:0 0 12px var(--nn-color,#00ffff);}
+
+/* Responsive */
+@media(max-width:768px){
+  .nn-slide{padding:20px;}
+  .nn-lang-card,.nn-intro-card{padding:28px 20px;}
+  .nn-hud{font-size:9px;padding:8px 10px;}
+  .nn-perf{display:none;}
+  .nn-lang-name{letter-spacing:2px;}
+  .nn-lang-icon{font-size:2.5rem;}
+}
+@media(max-width:480px){
+  .nn-lang-card,.nn-intro-card{padding:24px 16px;}
+  .nn-code-body{font-size:.6rem;}
+}
+
+/* ══════════════════════════════════════════════
+   § 4 — CONTATTI
+══════════════════════════════════════════════ */
+#s4{background:linear-gradient(160deg,#0f172a 0%,#1e294a 50%,#0f1f2a 100%);color:#fff;}
+
+.contact-wrap{max-width:780px;width:100%;text-align:center;}
+.contact-sub{color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:44px;line-height:1.7;}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:32px;}
+.c-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;padding:22px 18px;text-align:left;text-decoration:none;
+  transition:.4s;display:block;cursor:default;}
+.c-card.clickable{cursor:none;}
+.c-card:hover{transform:translateY(-7px);border-color:rgba(255,255,255,.22);}
+.c-icon{font-size:1.5rem;margin-bottom:8px;}
+.c-label{font-size:.64rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.1em;}
+.c-val{font-size:.83rem;font-weight:700;color:#fff;margin-top:3px;word-break:break-all;}
+
+.avail-chip{display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:50px;background:rgba(34,197,94,.15);
+  border:1px solid rgba(34,197,94,.3);color:var(--green-l);font-weight:700;font-size:.85rem;}
+.avail-dot{width:9px;height:9px;border-radius:50%;background:var(--green-l);
+  animation:pulse 1.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+
+footer{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,.2);font-size:.68rem;white-space:nowrap;text-align:center;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:600px){
+  nav{bottom:14px;padding:6px 8px;}
+  nav a{padding:5px 8px;font-size:.62rem;}
+  .skills-grid{grid-template-columns:1fr;}
+  .info-grid{grid-template-columns:1fr;}
+  .stat-row{gap:8px;}
+  .hero-bg img{object-position:76% center;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div id="pbar"></div>
+
+<!-- NAV -->
+<nav id="mainnav">
+  <a href="#s0" class="on nav-dark" data-i18n="nav_home">🏠 Home</a>
+  <a href="#s1" data-i18n="nav_about">👤 About</a>
+  <a href="#s2" data-i18n="nav_geo">📐 Surveyor</a>
+  <a href="#s3" data-i18n="nav_dev">💻 Developer</a>
+  <a href="#s4" data-i18n="nav_contact">✉️ Contact</a>
+</nav>
+
+<!-- LANG SWITCHER -->
+<div id="lang-sw">
+  <button class="lb" onclick="setLang('it')">🇮🇹 IT</button>
+  <button class="lb active" onclick="setLang('en')">🇬🇧 EN</button>
+  <button class="lb" onclick="setLang('de')">🇩🇪 DE</button>
+  <button class="lb" onclick="setLang('fr')">🇫🇷 FR</button>
+  <button class="lb" onclick="setLang('es')">🇪🇸 ES</button>
+</div>
+
+
+<!-- ════════ HERO HORIZONTAL SLIDE ZONE ════════ -->
+<div id="hero-slide-zone">
+  <div id="hero-slide-sticky">
+    <div id="hero-slide-track">
+
+      <!-- Panel 1: Hero -->
+      <div class="hs-panel">
+        <section id="s0">
+          <div class="hero-bg">
+            <img src="foto curriculum..jpeg" alt="Vincenzo Baccaro"
+              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0f172a,#1e293b)'">
+            <div class="hero-grad-main"></div>
+            <div class="hero-grad-bottom"></div>
+          </div>
+
+          <div class="hero-content">
+            <h1 class="hero-name reveal">Vincenzo<br><span>Baccaro</span></h1>
+
+            <p class="hero-desc reveal d1" data-i18n="hero_desc">Italian Land Surveyor &amp; Computer Science Student — bridging architecture and code.</p>
+
+            <div class="hero-loc reveal d2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              <span data-i18n="hero_loc">Ostuni (BR) — Puglia, Italy</span>
+            </div>
+
+            <div class="hero-stats reveal d2">
+              <div class="hero-stat">
+                <div class="stat-num sng" data-c="20">0</div>
+                <div class="stat-label" data-i18n="stat_age">Years old</div>
+              </div>
+              <div class="hero-stat">
+                <div class="stat-num snb" data-c="5">0</div>
+                <div class="stat-label" data-i18n="stat_cad">CAD/BIM Tools</div>
+              </div>
+              <div class="hero-stat">
+                <div class="stat-num sng" data-c="7">0</div>
+                <div class="stat-label" data-i18n="stat_lang">Languages</div>
+              </div>
+            </div>
+
+            <div class="cta-row reveal d3">
+              <a href="#s4" class="btn btn-g" data-i18n="cta_contact">✉️ Contact me</a>
+              <a href="#s2" class="btn btn-b" data-i18n="cta_skills">📐 View Skills</a>
+            </div>
+          </div>
+
+          <div class="scroll-hint"><div class="scroll-arrow"></div><span data-i18n="scroll_hint">Scroll</span></div>
+        </section>
+      </div>
+
+      <!-- Panel 2: CV Transition -->
+      <div class="hs-panel hs-transition">
+        <div class="hs-eyebrow" data-i18n="hs_eyebrow">Curriculum Vitae</div>
+        <div class="hs-big" data-i18n="hs_big">Discover my<br><em>journey</em></div>
+        <div class="hs-sub" data-i18n="hs_sub">Certified Surveyor &amp; Computer Science Student.<br>Scroll to explore skills, projects and contacts.</div>
+        <div class="hs-arrow-down"></div>
+        <div class="hs-progress-dots">
+          <div class="hs-dot active"></div>
+          <div class="hs-dot"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════ § 1 — CHI SONO ════════ -->
+<section id="s1">
+  <div class="about-wrap">
+    <div>
+      <p class="eyebrow reveal" style="color:var(--green-l)" data-i18n="about_eyebrow">About Me</p>
+      <h2 class="sec-h2 reveal d1" style="color:#fff" data-i18n="about_h2">Two <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Skills.</span></h2>
+      <div class="about-text">
+        <p class="reveal d2" data-i18n="about_p1">I am <strong>Vincenzo Baccaro</strong>, a young Italian professional from Ostuni living at the intersection of construction and computer science. After earning my <strong style="color:var(--green-l)">Surveying Diploma</strong>, I chose to evolve my skills by enrolling in <strong style="color:var(--blue-l)">Computer Science</strong> at the University of Bari, where I am currently in my second year.</p>
+        <p class="reveal d3" data-i18n="about_p2">My determination drives me to never settle: I combine the precision of technical drawing and BIM modeling with the power of software. I am an extremely dynamic person with a strong work ethic and a natural aptitude for problem solving. I seek an opportunity to prove my eagerness and ability to learn quickly in innovative environments.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-tile reveal d2"><div class="tile-icon">📍</div><div class="tile-label" data-i18n="tile_residence">Location</div><div class="tile-val" data-i18n="hero_loc">Ostuni (BR), Italy</div></div>
+        <div class="info-tile reveal d3"><div class="tile-icon">🎂</div><div class="tile-label" data-i18n="tile_age">Age</div><div class="tile-val" data-i18n="tile_age_val">20 years old</div></div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow reveal" style="color:var(--blue-l)" data-i18n="areas_eyebrow">Main Areas</p>
+      <h2 class="sec-h2 reveal d1" style="color:#fff" data-i18n="areas_h2">What I <span style="background:linear-gradient(135deg,var(--blue-l),var(--green-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> bring.</span></h2>
+      <div class="area-list">
+        <div class="area-item reveal d2">
+          <div class="ai-icon aig">📐</div>
+          <div><div class="ai-title" data-i18n="area1_title">Technical Drawing &amp; BIM</div><div class="ai-desc">AutoCAD · ProgeCAD · ArchiCAD · Edificius</div></div>
+        </div>
+        <div class="area-item reveal d3">
+          <div class="ai-icon aib">💻</div>
+          <div><div class="ai-title" data-i18n="area2_title">Programming &amp; Software</div><div class="ai-desc">C · C++ · Java · Python · MySQL · HTML · CSS</div></div>
+        </div>
+        <div class="area-item reveal d4">
+          <div class="ai-icon aig">🎨</div>
+          <div><div class="ai-title" data-i18n="area3_title">Graphics &amp; Visual Design</div><div class="ai-desc" data-i18n="area3_desc">Canva · Visual communication</div></div>
+        </div>
+        <div class="area-item reveal d5">
+          <div class="ai-icon aib">🧩</div>
+          <div><div class="ai-title" data-i18n="area4_title">Problem Solving &amp; Logic</div><div class="ai-desc" data-i18n="area4_desc">Algorithms · Data structures · Analysis</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ § 2 — GEOMETRA GALLERY ════════ -->
+<section id="s2">
+  <div class="geo-sticky">
+    <div id="geo-canvas-container"></div>
+    <div id="geo-ui-layer">
+      <div class="geo-logo" data-i18n="geo_eyebrow">Surveyor · Skills</div>
+
+      <!-- Slide 0: AutoCAD -->
+      <div class="geo-slide active" id="geo-slide-0">
+        <span class="geo-catalogue">01 / Skills</span>
+        <h2>AutoCAD</h2>
+        <div class="geo-desc" data-i18n="geo_autocad_desc">
+          Professional tool for 2D drafting and CAD design. Used for floor plans, architectural drawings and construction details with millimeter precision.
+        </div>
+        <div class="geo-meta">
+          <span class="geo-ml">Software</span><span class="geo-mv">Autodesk</span>
+          <span class="geo-ml">Level</span><span class="geo-mv">Advanced</span>
+          <span class="geo-ml">Tipo</span><span class="geo-mv">2D / 3D CAD</span>
+        </div>
+        <div class="geo-anim-box">
+          <div class="cad-mini">
+            <div class="cad-mini-bar">
+              <span class="tdot" style="background:#ff5f57"></span>
+              <span class="tdot" style="background:#febc2e;margin:0 3px"></span>
+              <span class="tdot" style="background:#28c840"></span>
+              <span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">AutoCAD 2024</span>
+            </div>
+            <div class="cad-mini-canvas">
+              <svg class="cad-mini-svg" viewBox="0 0 185 80" xmlns="http://www.w3.org/2000/svg">
+                <rect x="18" y="10" width="148" height="60" fill="none" stroke="#4361ee" stroke-width="1.5"/>
+                <line x1="92" y1="10" x2="92" y2="70" stroke="#4361ee" stroke-width="1"/>
+                <line x1="18" y1="40" x2="166" y2="40" stroke="#4361ee" stroke-width="1"/>
+                <path d="M92 10 A22 22 0 0 1 114 32" fill="none" stroke="#00d4ff" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="50" y1="10" x2="78" y2="10" stroke="#ffd60a" stroke-width="2.5"/>
+                <line x1="112" y1="10" x2="140" y2="10" stroke="#ffd60a" stroke-width="2.5"/>
+                <text x="55" y="28" fill="rgba(255,255,255,.35)" font-size="6" font-family="Courier New">LIVING</text>
+                <text x="105" y="28" fill="rgba(255,255,255,.35)" font-size="6" font-family="Courier New">CUCINA</text>
+                <text x="55" y="58" fill="rgba(255,255,255,.28)" font-size="6" font-family="Courier New">CAMERA</text>
+                <text x="105" y="58" fill="rgba(255,255,255,.28)" font-size="6" font-family="Courier New">BAGNO</text>
+              </svg>
+              <div class="cad-mini-cur"></div>
+            </div>
+            <div class="cad-mini-cmd">Command: <span style="animation:blink .8s step-end infinite">LINE_</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 1: ProgeCAD -->
+      <div class="geo-slide" id="geo-slide-1">
+        <span class="geo-catalogue">02 / Skills</span>
+        <h2>ProgeCAD</h2>
+        <div class="geo-desc" data-i18n="geo_progecad_desc">
+          Alternative CAD software compatible with DWG formats. Used for technical projects, sections and geometric constructions with a professional workflow.
+        </div>
+        <div class="geo-meta">
+          <span class="geo-ml">Software</span><span class="geo-mv">progeSOFT</span>
+          <span class="geo-ml">Level</span><span class="geo-mv">Intermediate</span>
+          <span class="geo-ml">Tipo</span><span class="geo-mv">2D CAD</span>
+        </div>
+        <div class="geo-anim-box">
+          <div class="pcad-box">
+            <div class="pcad-bar">
+              <span class="tdot" style="background:#ff5f57"></span>
+              <span class="tdot" style="background:#febc2e;margin:0 3px"></span>
+              <span class="tdot" style="background:#28c840"></span>
+              <span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">ProgeCAD 2024</span>
+            </div>
+            <div class="pcad-body">
+              <svg class="pcad-svg" viewBox="0 0 185 80" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="92,12 158,68 26,68" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                <line x1="92" y1="12" x2="92" y2="68" stroke="#22c55e" stroke-width=".8" stroke-dasharray="3 2"/>
+                <circle cx="92" cy="40" r="18" fill="none" stroke="#86efac" stroke-width="1" stroke-dasharray="2 2"/>
+                <text x="92" y="58" fill="rgba(255,255,255,.3)" font-size="5" font-family="Courier New" text-anchor="middle">8.40 m</text>
+              </svg>
+              <div class="pcad-cur"></div>
+            </div>
+            <div class="pcad-cmd">Command: POLYGON_</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: ArchiCAD -->
+      <div class="geo-slide" id="geo-slide-2">
+        <span class="geo-catalogue">03 / Skills</span>
+        <h2>ArchiCAD</h2>
+        <div class="geo-desc" data-i18n="geo_archicad_desc">
+          BIM software for 3D architectural modeling. Complex projects with real-time 3D visualization and automatic generation of plans and sections.
+        </div>
+        <div class="geo-meta">
+          <span class="geo-ml">Software</span><span class="geo-mv">Graphisoft</span>
+          <span class="geo-ml">Level</span><span class="geo-mv">Intermediate</span>
+          <span class="geo-ml">Tipo</span><span class="geo-mv">BIM 3D</span>
+        </div>
+        <div class="geo-anim-box">
+          <div class="archicad-box">
+            <div class="archicad-bar">
+              <div class="archicad-logo">A</div>
+              <span style="font-size:.52rem;color:rgba(255,255,255,.45);font-family:'Segoe UI',sans-serif;">ArchiCAD 27</span>
+            </div>
+            <div class="archicad-canvas">
+              <svg class="archicad-svg" viewBox="0 0 185 80" xmlns="http://www.w3.org/2000/svg">
+                <rect x="28" y="32" width="82" height="40" fill="none" stroke="#e74c3c" stroke-width="1.5" class="archicad-blink"/>
+                <polygon points="28,32 69,10 110,32" fill="none" stroke="#e74c3c" stroke-width="1.5"/>
+                <line x1="110" y1="32" x2="138" y2="18" stroke="rgba(231,76,60,.45)" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="138" y1="18" x2="138" y2="58" stroke="rgba(231,76,60,.45)" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="110" y1="72" x2="138" y2="58" stroke="rgba(231,76,60,.45)" stroke-width="1" stroke-dasharray="3 2"/>
+                <rect x="52" y="52" width="18" height="20" fill="rgba(231,76,60,.12)" stroke="#e74c3c" stroke-width="1"/>
+                <text x="145" y="26" fill="rgba(231,76,60,.5)" font-size="5" font-family="Segoe UI">3D BIM</text>
+              </svg>
+              <div class="archicad-cur3d"></div>
+            </div>
+            <div class="archicad-cmd">WALL Tool · 3D View_</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Edificius -->
+      <div class="geo-slide" id="geo-slide-3">
+        <span class="geo-catalogue">04 / Skills</span>
+        <h2>Edificius</h2>
+        <div class="geo-desc" data-i18n="geo_edificius_desc">
+          BIM software for architecture. Complete building project management: structure, systems and architecture in a single integrated environment.
+        </div>
+        <div class="geo-meta">
+          <span class="geo-ml">Software</span><span class="geo-mv">ACCA Software</span>
+          <span class="geo-ml">Level</span><span class="geo-mv">Basic</span>
+          <span class="geo-ml">Tipo</span><span class="geo-mv">BIM</span>
+        </div>
+        <div class="geo-anim-box">
+          <div class="edif-box">
+            <div class="edif-bar">
+              <div class="edif-logo">E</div>
+              <span style="font-size:.52rem;color:rgba(255,255,255,.38);margin-left:5px;font-family:'Segoe UI',sans-serif;">Edificius BIM</span>
+            </div>
+            <div class="edif-canvas">
+              <svg class="edif-svg" viewBox="0 0 185 80" xmlns="http://www.w3.org/2000/svg">
+                <rect x="38" y="36" width="72" height="38" fill="rgba(34,197,94,.07)" stroke="#22c55e" stroke-width="1.5"/>
+                <polygon points="38,36 74,14 110,36" fill="rgba(22,163,74,.1)" stroke="#22c55e" stroke-width="1.5"/>
+                <rect x="46" y="46" width="14" height="11" fill="rgba(34,197,94,.18)" stroke="#86efac" stroke-width="1"/>
+                <rect x="82" y="46" width="14" height="11" fill="rgba(34,197,94,.18)" stroke="#86efac" stroke-width="1"/>
+                <rect x="61" y="57" width="12" height="17" fill="rgba(34,197,94,.14)" stroke="#86efac" stroke-width="1"/>
+                <text x="74" y="78" fill="rgba(34,197,94,.38)" font-size="5" font-family="Segoe UI" text-anchor="middle">BIM Level 1</text>
+              </svg>
+              <div class="edif-fly">🏗️</div>
+            </div>
+            <div class="edif-cmd">BIM · WALL Insert_</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Canva -->
+      <div class="geo-slide" id="geo-slide-4">
+        <span class="geo-catalogue">05 / Skills</span>
+        <h2>Canva</h2>
+        <div class="geo-desc" data-i18n="geo_canva_desc">
+          Visual design platform for professional presentations, social media and visual communication. Creativity applied to the technical and professional world.
+        </div>
+        <div class="geo-meta">
+          <span class="geo-ml">Software</span><span class="geo-mv">Canva Inc.</span>
+          <span class="geo-ml">Level</span><span class="geo-mv">Advanced</span>
+          <span class="geo-ml">Tipo</span><span class="geo-mv">Design</span>
+        </div>
+        <div class="geo-anim-box">
+          <div class="canva-box">
+            <div class="canva-top">
+              <div class="canva-logo"><div class="canva-logo-inner"></div></div>
+              <span style="font-size:.57rem;font-weight:700;color:#fff;font-family:'Segoe UI',sans-serif;">Canva Design</span>
+            </div>
+            <div class="canva-canvas">
+              <div class="canva-el ce1"></div>
+              <div class="canva-el ce2"></div>
+              <div class="canva-el ce3"></div>
+              <div class="canva-el ce4"></div>
+            </div>
+            <div class="canva-bottom">✨ Presentation · Social · CV</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="geo-scroll-hint" data-i18n="scroll_hint_long">Scroll to explore</div>
+  </div>
+</section>
+
+
+<!-- ════════ § 3 — DEVELOPER · NEURAL NEXUS ════════ -->
+<section id="s3">
+  <div class="nn-sticky">
+    <div id="nn-container"></div>
+    <div class="nn-grid-overlay"></div>
+    <div class="nn-circuit"></div>
+
+
+    <div id="nn-ui-layer">
+
+      <!-- HUD -->
+      <div class="nn-hud">
+        <div class="nn-hud-line"><span>SYSTEM:</span><span class="nn-hud-val">ONLINE</span></div>
+        <div class="nn-hud-line"><span>LANG:</span><span class="nn-hud-val" id="nn-lang-display">INIT</span></div>
+        <div class="nn-hud-line"><span>NODES:</span><span class="nn-hud-val">28 000</span></div>
+      </div>
+
+      <!-- Perf bars -->
+      <div class="nn-perf">
+        <div class="nn-perf-label">CPU</div><div class="nn-perf-bar nn-cpu"></div>
+        <div class="nn-perf-label">GPU</div><div class="nn-perf-bar nn-gpu"></div>
+        <div class="nn-perf-label">MEM</div><div class="nn-perf-bar nn-mem"></div>
+      </div>
+
+      <!-- Dots -->
+      <div class="nn-dots">
+        <div class="nn-dot active" data-i="0"></div>
+        <div class="nn-dot" data-i="1"></div>
+        <div class="nn-dot" data-i="2"></div>
+        <div class="nn-dot" data-i="3"></div>
+        <div class="nn-dot" data-i="4"></div>
+        <div class="nn-dot" data-i="5"></div>
+        <div class="nn-dot" data-i="6"></div>
+        <div class="nn-dot" data-i="7"></div>
+      </div>
+
+      <!-- Slide 0: Intro -->
+      <div class="nn-slide active" id="nn-slide-0">
+        <div class="nn-slide-inner">
+          <div class="nn-intro-card">
+            <div class="nn-intro-icon">🎓</div>
+            <div class="nn-intro-title" data-i18n="dev_h2">BSc in <span style="background:linear-gradient(135deg,#00ffff,#0088ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Computer Science</span></div>
+            <div class="nn-intro-uni" data-i18n="nn_uni">University of Bari Aldo Moro<br>🖥️ Department of Computer Science · Bari, Italy</div>
+            <div class="nn-intro-badges">
+              <span class="nn-badge" data-i18n="uni_year">2nd Year — Ongoing</span>
+              <span class="nn-badge" data-i18n="uni_degree">BSc — Bachelor's Degree</span>
+              <span class="nn-badge" data-i18n="uni_expected">Expected 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 1: C -->
+      <div class="nn-slide" id="nn-slide-1">
+        <div class="nn-slide-inner">
+          <div class="nn-lang-card">
+            <span class="nn-lang-icon">⚙️</span>
+            <div class="nn-lang-name">C</div>
+            <div class="nn-lang-type">Systems · Low-level</div>
+            <div class="nn-lang-bar"><div class="nn-lang-fill" data-w="78"></div></div>
+            <div class="nn-lang-desc" data-i18n="nn_c_desc">Fundamental language for systems programming. Memory management, pointers and low-level algorithms.</div>
+            <div class="nn-code">
+              <div class="nn-code-bar"><span class="cdot cd-r"></span><span class="cdot cd-y" style="margin:0 3px"></span><span class="cdot cd-g"></span><span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">main.c</span></div>
+              <div class="nn-code-body"><div class="cl"><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span></div><div class="cl"><span class="cm">// Vincenzo Baccaro</span></div><div class="cl"><span class="kw">int</span> <span class="fn">main</span>() {</div><div class="cl">&nbsp;&nbsp;<span class="fn">printf</span>(<span class="str">"Hello!\n"</span>);</div><div class="cl">&nbsp;&nbsp;<span class="kw">return</span> <span class="num">0</span>;</div><div class="cl">}</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: C++ -->
+      <div class="nn-slide" id="nn-slide-2">
+        <div class="nn-slide-inner">
+          <div class="nn-lang-card">
+            <span class="nn-lang-icon">🔧</span>
+            <div class="nn-lang-name">C++</div>
+            <div class="nn-lang-type">OOP · Performance</div>
+            <div class="nn-lang-bar"><div class="nn-lang-fill" data-w="72"></div></div>
+            <div class="nn-lang-desc" data-i18n="nn_cpp_desc">Object-oriented programming with native performance. Classes, inheritance and polymorphism for complex software.</div>
+            <div class="nn-code">
+              <div class="nn-code-bar"><span class="cdot cd-r"></span><span class="cdot cd-y" style="margin:0 3px"></span><span class="cdot cd-g"></span><span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">main.cpp</span></div>
+              <div class="nn-code-body"><div class="cl"><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span></div><div class="cl"><span class="kw">using namespace</span> std;</div><div class="cl"><span class="kw">class</span> <span class="fn">Dev</span> {</div><div class="cl">&nbsp;&nbsp;<span class="kw">public</span>: <span class="fn">string</span> name;</div><div class="cl">&nbsp;&nbsp;<span class="fn">void</span> greet();</div><div class="cl">};</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Java -->
+      <div class="nn-slide" id="nn-slide-3">
+        <div class="nn-slide-inner">
+          <div class="nn-lang-card">
+            <span class="nn-lang-icon">☕</span>
+            <div class="nn-lang-name">Java</div>
+            <div class="nn-lang-type">OOP · Cross-platform</div>
+            <div class="nn-lang-bar"><div class="nn-lang-fill" data-w="70"></div></div>
+            <div class="nn-lang-desc" data-i18n="nn_java_desc">Robust and portable language. SOLID principles, design patterns and enterprise development with the JVM.</div>
+            <div class="nn-code">
+              <div class="nn-code-bar"><span class="cdot cd-r"></span><span class="cdot cd-y" style="margin:0 3px"></span><span class="cdot cd-g"></span><span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">Main.java</span></div>
+              <div class="nn-code-body"><div class="cl"><span class="kw">public class</span> <span class="fn">Main</span> {</div><div class="cl">&nbsp;&nbsp;<span class="kw">public static void</span></div><div class="cl">&nbsp;&nbsp;<span class="fn">main</span>(String[] a) {</div><div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;System.out.</div><div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">println</span>(<span class="str">"Ciao!"</span>);</div><div class="cl">&nbsp;&nbsp;}}</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Python -->
+      <div class="nn-slide" id="nn-slide-4">
+        <div class="nn-slide-inner">
+          <div class="nn-lang-card">
+            <span class="nn-lang-icon">🐍</span>
+            <div class="nn-lang-name">Python</div>
+            <div class="nn-lang-type">Scripting · Data Science</div>
+            <div class="nn-lang-bar"><div class="nn-lang-fill" data-w="75"></div></div>
+            <div class="nn-lang-desc" data-i18n="nn_py_desc">Versatile scripting for automation, data analysis and machine learning. Clean syntax and powerful libraries.</div>
+            <div class="nn-code">
+              <div class="nn-code-bar"><span class="cdot cd-r"></span><span class="cdot cd-y" style="margin:0 3px"></span><span class="cdot cd-g"></span><span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">script.py</span></div>
+              <div class="nn-code-body"><div class="cl"><span class="cm"># Python · Baccaro</span></div><div class="cl"><span class="kw">def</span> <span class="fn">greet</span>(name):</div><div class="cl">&nbsp;&nbsp;<span class="kw">return</span> <span class="fn">f</span><span class="str">"Ciao {name}"</span></div><div class="cl"></div><div class="cl"><span class="fn">print</span>(<span class="fn">greet</span>(</div><div class="cl">&nbsp;&nbsp;<span class="str">"Vincenzo"</span>))</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: MySQL -->
+      <div class="nn-slide" id="nn-slide-5">
+        <div class="nn-slide-inner">
+          <div class="nn-lang-card">
+            <span class="nn-lang-icon">🗄️</span>
+            <div class="nn-lang-name">MySQL</div>
+            <div class="nn-lang-type">Databases · SQL</div>
+            <div class="nn-lang-bar"><div class="nn-lang-fill" data-w="65"></div></div>
+            <div class="nn-lang-desc" data-i18n="nn_sql_desc">Relational database management. Complex queries, JOINs, stored procedures and performance optimization.</div>
+            <div class="nn-code">
+              <div class="nn-code-bar"><span class="cdot cd-r"></span><span class="cdot cd-y" style="margin:0 3px"></span><span class="cdot cd-g"></span><span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">query.sql</span></div>
+              <div class="nn-code-body"><div class="cl"><span class="kw">SELECT</span> * <span class="kw">FROM</span> users</div><div class="cl"><span class="kw">WHERE</span> nome =</div><div class="cl">&nbsp;&nbsp;<span class="str">'Vincenzo'</span></div><div class="cl">&nbsp;&nbsp;<span class="kw">AND</span> età = <span class="num">20</span>;</div><div class="cl"></div><div class="cl"><span class="cm">-- 1 row found ✓</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: HTML -->
+      <div class="nn-slide" id="nn-slide-6">
+        <div class="nn-slide-inner">
+          <div class="nn-lang-card">
+            <span class="nn-lang-icon">🌐</span>
+            <div class="nn-lang-name">HTML</div>
+            <div class="nn-lang-type">Markup · Web</div>
+            <div class="nn-lang-bar"><div class="nn-lang-fill" data-w="80"></div></div>
+            <div class="nn-lang-desc" data-i18n="nn_html_desc">Semantic web structure. HTML5, accessibility, forms, multimedia and W3C standards.</div>
+            <div class="nn-code">
+              <div class="nn-code-bar"><span class="cdot cd-r"></span><span class="cdot cd-y" style="margin:0 3px"></span><span class="cdot cd-g"></span><span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">index.html</span></div>
+              <div class="nn-code-body"><div class="cl"><span class="ht">&lt;html</span> <span class="ha">lang</span>=<span class="hv">"it"</span><span class="ht">&gt;</span></div><div class="cl">&nbsp;<span class="ht">&lt;head&gt;</span></div><div class="cl">&nbsp;&nbsp;<span class="ht">&lt;title&gt;</span>CV Vincenzo<span class="ht">&lt;/title&gt;</span></div><div class="cl">&nbsp;<span class="ht">&lt;/head&gt;</span></div><div class="cl">&nbsp;<span class="ht">&lt;body&gt;</span></div><div class="cl">&nbsp;&nbsp;<span class="ht">&lt;h1&gt;</span>Vincenzo<span class="ht">&lt;/h1&gt;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: CSS -->
+      <div class="nn-slide" id="nn-slide-7">
+        <div class="nn-slide-inner">
+          <div class="nn-lang-card">
+            <span class="nn-lang-icon">🎨</span>
+            <div class="nn-lang-name">CSS</div>
+            <div class="nn-lang-type">Styling · Animations</div>
+            <div class="nn-lang-bar"><div class="nn-lang-fill" data-w="78"></div></div>
+            <div class="nn-lang-desc" data-i18n="nn_css_desc">Responsive design, Flexbox, Grid, animations and transitions. From concept to pixel-perfect.</div>
+            <div class="nn-code">
+              <div class="nn-code-bar"><span class="cdot cd-r"></span><span class="cdot cd-y" style="margin:0 3px"></span><span class="cdot cd-g"></span><span style="font-size:.5rem;color:rgba(255,255,255,.35);margin-left:6px;font-family:'Segoe UI',sans-serif;">style.css</span></div>
+              <div class="nn-code-body"><div class="cl"><span class="cs">.hero</span> {</div><div class="cl">&nbsp;&nbsp;<span class="cp">background</span>:</div><div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cv">linear-gradient</span>(</div><div class="cl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cv">#16a34a</span>, <span class="cv">#2563eb</span>);</div><div class="cl">&nbsp;&nbsp;<span class="cp">animation</span>: <span class="cv">fadeIn</span> <span class="num">1s</span>;</div><div class="cl">}</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="nn-scroll-hint" data-i18n="scroll_hint_long">
+        <span>Scroll to explore</span>
+        <div class="nn-scroll-arrow"></div>
+      </div>
+
+    </div><!-- /nn-ui-layer -->
+  </div><!-- /nn-sticky -->
+</section>
+
+
+<!-- ════════ § 4 — CONTATTI ════════ -->
+<section id="s4">
+  <div class="contact-wrap">
+    <p class="eyebrow reveal" style="color:var(--green-l)" data-i18n="contact_eyebrow">Get in Touch</p>
+    <h2 class="sec-h2 reveal d1" style="color:#fff" data-i18n="contact_h2">Let's stay in <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> touch.</span></h2>
+    <p class="contact-sub reveal d2" data-i18n="contact_sub">Whether it's a collaboration, an opportunity or a chat — reach out anytime.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:vincibac05@gmail.com" class="c-card clickable reveal d1">
+        <div class="c-icon">📧</div><div class="c-label" data-i18n="tile_email">Email</div>
+        <div class="c-val">vincibac05@gmail.com</div>
+      </a>
+      <a href="tel:+393294885907" class="c-card clickable reveal d2">
+        <div class="c-icon">📞</div><div class="c-label" data-i18n="tile_phone">Phone</div>
+        <div class="c-val">+39 329 488 5907</div>
+      </a>
+      <div class="c-card reveal d3">
+        <div class="c-icon">💼</div><div class="c-label">LinkedIn</div>
+        <div class="c-val">Vincenzo Baccaro</div>
+      </div>
+      <div class="c-card reveal d4">
+        <div class="c-icon">📍</div><div class="c-label" data-i18n="tile_residence">Location</div>
+        <div class="c-val" data-i18n="hero_loc">Ostuni (BR) — Puglia, Italy</div>
+      </div>
+    </div>
+
+    <div class="avail-chip reveal d5">
+      <div class="avail-dot"></div>
+      <span data-i18n="avail">Available for new opportunities</span>
+    </div>
+  </div>
+  <footer>© 2026 Vincenzo Baccaro — Curriculum Vitae Interattivo</footer>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+/* ══ CURSOR ══ */
+const cur = document.getElementById('cur');
+const ring = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+});
+(function raf() {
+  rx += (mx - rx) * .12; ry += (my - ry) * .12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(raf);
+})();
+document.querySelectorAll('a,button,.nn-lang-card,.c-card,.skill-tag,.area-item,.info-tile,.hero-stat,.cad-tool,.ci,.lb,.nn-dot').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cur.style.width = '20px'; cur.style.height = '20px';
+    ring.style.width = '56px'; ring.style.height = '56px';
+    ring.style.borderColor = 'var(--green)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cur.style.width = '14px'; cur.style.height = '14px';
+    ring.style.width = '44px'; ring.style.height = '44px';
+    ring.style.borderColor = 'var(--blue)';
+  });
+});
+
+/* ══ PROGRESS BAR ══ */
+const pbar = document.getElementById('pbar');
+window.addEventListener('scroll', () => {
+  const pct = scrollY / Math.max(document.body.scrollHeight - innerHeight, 1);
+  pbar.style.width = (pct * 100) + '%';
+}, { passive: true });
+
+/* ══ REVEAL OBSERVER ══ */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-zoom').forEach(el => revObs.observe(el));
+
+
+
+/* ══ COUNTERS ══ */
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const t = +e.target.dataset.c; let v = 0; const step = t / 50;
+      const ti = setInterval(() => {
+        v = Math.min(v + step, t);
+        e.target.textContent = Math.floor(v) + (t >= 5 ? '+' : '');
+        if (v >= t) clearInterval(ti);
+      }, 20);
+      cObs.unobserve(e.target);
+    }
+  });
+}, { threshold: .5 });
+document.querySelectorAll('[data-c]').forEach(el => cObs.observe(el));
+
+/* ══ HERO HORIZONTAL SLIDE ══ */
+{
+  const zone = document.getElementById('hero-slide-zone');
+  const track = document.getElementById('hero-slide-track');
+  const heroContent = document.querySelector('.hero-content');
+  const scrollHint = document.querySelector('#s0 .scroll-hint');
+  const dots = document.querySelectorAll('.hs-dot');
+
+  function driveSlide() {
+    if (!zone || !track) return;
+    const rect = zone.getBoundingClientRect();
+    const zoneH = zone.offsetHeight - window.innerHeight;
+    const raw = -rect.top / zoneH;
+    const p = Math.max(0, Math.min(1, raw));
+    track.style.transform = 'translateX(' + (-p * 100) + 'vw)';
+    if (heroContent) heroContent.style.opacity = Math.max(1 - p * 2.5, 0);
+    if (scrollHint) scrollHint.style.opacity = Math.max(1 - p * 5, 0);
+    dots.forEach((d, i) => d.classList.toggle('active', i === (p > .5 ? 1 : 0)));
+  }
+  window.addEventListener('scroll', driveSlide, { passive: true });
+  driveSlide();
+}
+
+/* ══ NAV ACTIVE ══ */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('#mainnav a');
+const sColorMap = { s0: 'nav-dark', s1: null, s2: 'nav-geo', s3: 'nav-dev', s4: 'nav-dark' };
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('on', 'nav-dark', 'nav-geo', 'nav-dev'));
+      const lnk = document.querySelector(`#mainnav a[href="#${e.target.id}"]`);
+      if (lnk) {
+        lnk.classList.add('on');
+        const c = sColorMap[e.target.id];
+        if (c) lnk.classList.add(c);
+      }
+    }
+  });
+}, { threshold: .45 });
+sections.forEach(s => navObs.observe(s));
+
+/* ══ RESET ANIMAZIONI CODICE al hover ══ */
+function resetCodeAnim(container) {
+  container.querySelectorAll('.cl').forEach(line => {
+    line.style.animation = 'none';
+    void line.offsetWidth;
+    line.style.animation = '';
+  });
+}
+
+document.querySelectorAll('.skill-tag').forEach(tag => {
+  tag.addEventListener('mouseenter', () => resetCodeAnim(tag));
+});
+
+/* ══ GEOMETRA 3D GALLERY ══ */
+(function initGeoGallery() {
+  if (typeof THREE === 'undefined') return;
+
+  const GC = { slides: 5, spacing: 45, pW: 14, pH: 18, camZ: 30, wallAngle: -0.25, lerp: 0.06 };
+  const section = document.getElementById('s2');
+  const container = document.getElementById('geo-canvas-container');
+  if (!section || !container) return;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xf7f7f5);
+  scene.fog = new THREE.Fog(0xf7f7f5, 10, 110);
+
+  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+  camera.position.set(0, 0, GC.camZ);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const dL = new THREE.DirectionalLight(0xffffff, 0.5);
+  dL.position.set(10, 20, 10);
+  scene.add(dL);
+
+  const gallery = new THREE.Group();
+  scene.add(gallery);
+
+  /* --- Create painting textures --- */
+  function makeTex(name, bg, accent, grid, draw) {
+    const c = document.createElement('canvas');
+    c.width = 800; c.height = 1000;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, 800, 1000);
+    ctx.strokeStyle = grid + '22'; ctx.lineWidth = 0.5;
+    for (let x = 0; x < 800; x += 20) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 1000); ctx.stroke(); }
+    for (let y = 0; y < 1000; y += 20) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(800, y); ctx.stroke(); }
+    ctx.fillStyle = accent + '15'; ctx.fillRect(0, 0, 800, 60);
+    ctx.fillStyle = '#ff5f57'; ctx.beginPath(); ctx.arc(24, 30, 7, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#febc2e'; ctx.beginPath(); ctx.arc(46, 30, 7, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#28c840'; ctx.beginPath(); ctx.arc(68, 30, 7, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = accent + '80'; ctx.font = 'bold 16px Segoe UI, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillText(name, 90, 37);
+    draw(ctx, accent);
+    ctx.fillStyle = accent + '10'; ctx.fillRect(0, 940, 800, 60);
+    return new THREE.CanvasTexture(c);
+  }
+
+  const textures = [
+    makeTex('AutoCAD 2024 \u2014 FloorPlan_A.dwg', '#0a1220', '#00d4ff', '#4361ee', function(ctx, a) {
+      ctx.strokeStyle = a; ctx.lineWidth = 2;
+      ctx.strokeRect(100, 150, 600, 400);
+      ctx.beginPath(); ctx.moveTo(400, 150); ctx.lineTo(400, 550); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(100, 350); ctx.lineTo(700, 350); ctx.stroke();
+      ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(400, 150, 40, 0, Math.PI/2); ctx.stroke();
+      ctx.strokeStyle = '#ffd60a'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(180, 150); ctx.lineTo(280, 150); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(500, 150); ctx.lineTo(600, 150); ctx.stroke();
+      ctx.fillStyle = a + '60'; ctx.font = '22px Courier New'; ctx.textAlign = 'center';
+      ctx.fillText('LIVING', 250, 260); ctx.fillText('CUCINA', 550, 260);
+      ctx.fillText('CAMERA', 250, 460); ctx.fillText('BAGNO', 550, 460);
+      ctx.fillStyle = a; ctx.font = '14px Courier New'; ctx.textAlign = 'left';
+      ctx.fillText('Command: LINE_', 20, 975);
+    }),
+    makeTex('ProgeCAD 2024 \u2014 Section.dwg', '#0a1520', '#22c55e', '#22c55e', function(ctx, a) {
+      ctx.strokeStyle = a; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(400, 150); ctx.lineTo(650, 500); ctx.lineTo(150, 500); ctx.closePath(); ctx.stroke();
+      ctx.beginPath(); ctx.arc(400, 350, 130, 0, Math.PI*2); ctx.stroke();
+      ctx.setLineDash([6, 4]); ctx.strokeStyle = a + '60';
+      ctx.beginPath(); ctx.moveTo(400, 150); ctx.lineTo(400, 500); ctx.stroke();
+      ctx.setLineDash([]); ctx.fillStyle = a + '50'; ctx.font = '18px Courier New'; ctx.textAlign = 'center';
+      ctx.fillText('8.40 m', 400, 540);
+      ctx.fillStyle = a; ctx.font = '14px Courier New'; ctx.textAlign = 'left';
+      ctx.fillText('Command: POLYGON_', 20, 975);
+    }),
+    makeTex('ArchiCAD 27 \u2014 BIM Model', '#1a1a2e', '#e74c3c', '#e74c3c', function(ctx, a) {
+      ctx.strokeStyle = a; ctx.lineWidth = 2;
+      var ox=200,oy=350; ctx.strokeRect(ox, oy, 250, 200);
+      ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox+125, oy-100); ctx.lineTo(ox+250, oy); ctx.stroke();
+      ctx.strokeStyle = a + '60';
+      ctx.beginPath(); ctx.moveTo(ox+250, oy); ctx.lineTo(ox+370, oy-80); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ox+370, oy-80); ctx.lineTo(ox+370, oy+120); ctx.lineTo(ox+250, oy+200); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ox+125, oy-100); ctx.lineTo(ox+245, oy-180); ctx.lineTo(ox+370, oy-80); ctx.stroke();
+      ctx.strokeStyle = a; ctx.strokeRect(ox+35, oy+70, 55, 50); ctx.strokeRect(ox+160, oy+70, 55, 50);
+      ctx.strokeRect(ox+95, oy+120, 50, 80);
+      ctx.fillStyle = a + '50'; ctx.font = '16px Segoe UI'; ctx.textAlign = 'center';
+      ctx.fillText('3D BIM VIEW', 550, 200);
+      ctx.fillStyle = a; ctx.font = '14px Courier New'; ctx.textAlign = 'left';
+      ctx.fillText('WALL Tool \u00b7 3D View_', 20, 975);
+    }),
+    makeTex('Edificius BIM \u2014 Building.ebx', '#0a1a0a', '#22c55e', '#16a34a', function(ctx, a) {
+      ctx.strokeStyle = a; ctx.lineWidth = 2;
+      ctx.strokeRect(200, 300, 300, 250);
+      ctx.beginPath(); ctx.moveTo(200, 300); ctx.lineTo(350, 180); ctx.lineTo(500, 300); ctx.stroke();
+      ctx.strokeRect(230, 370, 50, 45); ctx.strokeRect(420, 370, 50, 45);
+      ctx.strokeRect(320, 460, 50, 90);
+      ctx.fillStyle = a + '20'; ctx.fillRect(560, 180, 190, 35); ctx.fillRect(560, 225, 190, 35); ctx.fillRect(560, 270, 190, 35);
+      ctx.fillStyle = a; ctx.font = '14px Segoe UI'; ctx.textAlign = 'center';
+      ctx.fillText('Struttura', 655, 203); ctx.fillText('Impianti', 655, 248); ctx.fillText('Architettura', 655, 293);
+      ctx.fillStyle = a; ctx.font = '14px Courier New'; ctx.textAlign = 'left';
+      ctx.fillText('BIM \u00b7 WALL Insert_', 20, 975);
+    }),
+    makeTex('Canva \u2014 Design Project', '#f3f4f6', '#8b5cf6', '#8b5cf6', function(ctx, a) {
+      ctx.fillStyle = '#8b5cf6'; ctx.fillRect(0, 60, 800, 50);
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 18px Segoe UI'; ctx.textAlign = 'left';
+      ctx.fillText('Canva \u2014 Design Project', 100, 92);
+      ctx.fillStyle = '#fbbf24'; ctx.fillRect(120, 200, 200, 80);
+      ctx.fillStyle = '#8b5cf6'; ctx.beginPath(); ctx.arc(500, 280, 80, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#34d399'; ctx.fillRect(150, 380, 280, 60);
+      ctx.fillStyle = '#f87171'; ctx.fillRect(500, 180, 100, 100);
+      ctx.fillStyle = '#60a5fa'; ctx.fillRect(200, 520, 350, 50);
+      ctx.fillStyle = '#37415120'; ctx.font = '900 50px Segoe UI'; ctx.textAlign = 'center';
+      ctx.fillText('VINCENZO BACCARO', 400, 800);
+      ctx.fillStyle = '#374151'; ctx.font = '14px Segoe UI'; ctx.textAlign = 'left';
+      ctx.fillText('Presentation \u00b7 Social \u00b7 CV', 20, 975);
+    })
+  ];
+
+  const planeGeo = new THREE.PlaneGeometry(GC.pW, GC.pH);
+  textures.forEach(function(tex, i) {
+    var g = new THREE.Group();
+    g.position.set(i * GC.spacing, 0, 0);
+    var mat = new THREE.MeshBasicMaterial({ map: tex });
+    g.add(new THREE.Mesh(new THREE.PlaneGeometry(GC.pW, GC.pH), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.15 })).translateZ(-0.5).translateX(0.8).translateY(-0.8));
+    g.add(new THREE.Mesh(planeGeo, mat));
+    g.add(new THREE.LineSegments(new THREE.EdgesGeometry(planeGeo), new THREE.LineBasicMaterial({ color: 0x222222 })));
+    var ll = GC.spacing;
+    var lg = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(-ll/2, 14, -1), new THREE.Vector3(ll/2, 14, -1),
+      new THREE.Vector3(-ll/2, -14, -1), new THREE.Vector3(ll/2, -14, -1)
+    ]);
+    g.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({ color: 0xdddddd })));
+    gallery.add(g);
+  });
+
+  gallery.rotation.y = GC.wallAngle;
+  gallery.position.x = 8;
+
+  var currentScroll = 0;
+  var gMouse = { x: 0, y: 0 };
+  window.addEventListener('mousemove', function(e) {
+    gMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    gMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  function updateGeoUI(scrollX) {
+    var idx = Math.round(scrollX / GC.spacing);
+    var safe = Math.max(0, Math.min(idx, GC.slides - 1));
+    for (var i = 0; i < GC.slides; i++) {
+      var el = document.getElementById('geo-slide-' + i);
+      if (el) el.classList.toggle('active', i === safe);
+    }
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    var rect = section.getBoundingClientRect();
+    var totalScroll = section.offsetHeight - window.innerHeight;
+    var progress = Math.max(0, Math.min(-rect.top / totalScroll, 1));
+    var targetScroll = progress * (GC.slides - 1) * GC.spacing;
+    currentScroll += (targetScroll - currentScroll) * GC.lerp;
+    camera.position.x = currentScroll * Math.cos(GC.wallAngle);
+    camera.position.z = GC.camZ - currentScroll * Math.sin(GC.wallAngle);
+    camera.rotation.x = gMouse.y * 0.05;
+    camera.rotation.y = -gMouse.x * 0.05;
+    updateGeoUI(currentScroll);
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', function() {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+  });
+
+  animate();
+})();
+
+/* ══ MULTI-LANGUAGE ══ */
+const T = {
+  it:{
+    nav_home:'🏠 Home', nav_about:'👤 Chi sono', nav_geo:'📐 Geometra', nav_dev:'💻 Developer', nav_contact:'✉️ Contatti',
+    badge_geo:'📐 Geometra', badge_cs:'💻 CS Student · Anno 2', badge_loc:'📍 Ostuni · Bari',
+    hero_desc:'Geometra italiano &amp; Studente di Informatica — tra architettura e codice.',
+    hero_loc:'Ostuni (BR) — Puglia, Italia',
+    stat_age:'Anni', stat_cad:'Tool CAD/BIM', stat_lang:'Linguaggi',
+    cta_contact:'✉️ Contattami', cta_skills:'📐 Vedi Skills',
+    scroll_hint:'Scorri',
+    hs_eyebrow:'Curriculum Vitae', hs_big:'Scopri il mio<br><em>percorso</em>', hs_sub:'Geometra diplomato &amp; Studente di Informatica.<br>Scorri per esplorare competenze, progetti e contatti.',
+    about_eyebrow:'Chi Sono', about_h2:'Le mie <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Competenze.</span>',
+    about_p1:'Sono <strong>Vincenzo Baccaro</strong>, un giovane professionista italiano di Ostuni che vive all\'intersezione tra il mondo tecnico delle costruzioni e quello logico dell\'informatica. Dopo aver conseguito il <strong style="color:var(--green-l)">Diploma di Geometra</strong>, ho scelto di evolvere le mie competenze iscrivendomi al corso di <strong style="color:var(--blue-l)">Informatica</strong> presso l\'Università di Bari, dove frequento attualmente il secondo anno.',
+    about_p2:'La mia determinazione mi spinge a non accontentarmi: unisco la precisione del disegno tecnico e della modellazione BIM alla potenza del software. Sono una persona estremamente dinamica, con una solida etica del lavoro e una naturale propensione al problem solving. Cerco un\'opportunità che mi permetta di mettere alla prova la mia voglia di fare e la mia capacità di apprendere rapidamente in contesti innovativi.',
+    tile_residence:'Residenza', tile_age:'Età', tile_age_val:'20 anni',
+    tile_email:'Email', tile_phone:'Telefono',
+    areas_eyebrow:'Aree Principali', areas_h2:'Cosa <span style="background:linear-gradient(135deg,var(--blue-l),var(--green-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> porto.</span>',
+    area1_title:'Disegno Tecnico &amp; BIM', area2_title:'Programmazione &amp; Software',
+    area3_title:'Grafica &amp; Visual Design', area3_desc:'Canva · Comunicazione visiva',
+    area4_title:'Problem Solving &amp; Logica', area4_desc:'Algoritmi · Strutture dati · Analisi',
+    geo_eyebrow:'Geometra · Competenze',
+    geo_autocad_desc:'Strumento professionale per il disegno tecnico 2D e la progettazione CAD. Utilizzato per planimetrie, piante architettoniche e dettagli costruttivi con precisione millimetrica.',
+    geo_progecad_desc:'Software CAD alternativo e compatibile con i formati DWG. Utilizzato per progetti tecnici, sezioni e costruzioni geometriche con workflow professionale.',
+    geo_archicad_desc:'Software BIM per la modellazione architettonica tridimensionale. Progetti complessi con visualizzazione 3D in tempo reale e generazione automatica di piante e sezioni.',
+    geo_edificius_desc:'Software BIM per l\'architettura. Gestione completa del progetto edilizio: struttura, impianti e architettura in un unico ambiente integrato con rendering fotorealistico.',
+    geo_canva_desc:'Piattaforma di design visivo per presentazioni professionali, social media e comunicazione visiva. Creatività applicata al mondo tecnico e professionale.',
+    scroll_hint_long:'Scorri per esplorare',
+    dev_eyebrow:'Studi Universitari', dev_h2:'BSc in <span style="background:linear-gradient(135deg,var(--blue),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Informatica</span>',
+    nn_uni:'Università degli Studi di Bari Aldo Moro<br>🖥️ Dipartimento di Informatica · Bari, Italia',
+    uni_year:'2° Anno in Corso', uni_degree:'BSc — Laurea Triennale', uni_expected:'Previsto 2026',
+    nn_c_desc:'Linguaggio fondamentale per la programmazione di sistema. Gestione della memoria, puntatori e algoritmi a basso livello.',
+    nn_cpp_desc:'Programmazione orientata agli oggetti con prestazioni native. Classi, ereditarietà e polimorfismo per software complessi.',
+    nn_java_desc:'Linguaggio robusto e portabile. Principi SOLID, design patterns e sviluppo enterprise con la JVM.',
+    nn_py_desc:'Scripting versatile per automazione, analisi dati e machine learning. Sintassi pulita e librerie potenti.',
+    nn_sql_desc:'Gestione database relazionali. Query complesse, JOIN, stored procedures e ottimizzazione delle performance.',
+    nn_html_desc:'Struttura semantica per il web. HTML5, accessibilità, form, multimedia e standard W3C.',
+    nn_css_desc:'Design responsive, Flexbox, Grid, animazioni e transizioni. Dall\'idea al pixel-perfect.',
+    contact_eyebrow:'Contattami', contact_h2:'Restiamo in <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> contatto.</span>',
+    contact_sub:'Che sia una collaborazione, un\'opportunità o una conversazione — scrivimi quando vuoi.',
+    avail:'Disponibile per nuove opportunità'
+  },
+  en:{
+    nav_home:'🏠 Home', nav_about:'👤 About', nav_geo:'📐 Surveyor', nav_dev:'💻 Developer', nav_contact:'✉️ Contact',
+    badge_geo:'📐 Surveyor', badge_cs:'💻 CS Student · Year 2', badge_loc:'📍 Ostuni · Bari',
+    hero_desc:'Italian Land Surveyor &amp; Computer Science Student — bridging architecture and code.',
+    hero_loc:'Ostuni (BR) — Puglia, Italy',
+    stat_age:'Years old', stat_cad:'CAD/BIM Tools', stat_lang:'Languages',
+    cta_contact:'✉️ Contact me', cta_skills:'📐 View Skills',
+    scroll_hint:'Scroll',
+    hs_eyebrow:'Curriculum Vitae', hs_big:'Discover my<br><em>journey</em>', hs_sub:'Certified Surveyor &amp; Computer Science Student.<br>Scroll to explore skills, projects and contacts.',
+    about_eyebrow:'About Me', about_h2:'Two <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Skills.</span>',
+    about_p1:'I am <strong>Vincenzo Baccaro</strong>, a young Italian professional from Ostuni living at the intersection of construction and computer science. After earning my <strong style="color:var(--green-l)">Surveying Diploma</strong>, I chose to evolve my skills by enrolling in <strong style="color:var(--blue-l)">Computer Science</strong> at the University of Bari, where I am currently in my second year.',
+    about_p2:'My determination drives me to never settle: I combine the precision of technical drawing and BIM modeling with the power of software. I am an extremely dynamic person with a strong work ethic and a natural aptitude for problem solving. I seek an opportunity to prove my eagerness and ability to learn quickly in innovative environments.',
+    tile_residence:'Location', tile_age:'Age', tile_age_val:'20 years old',
+    tile_email:'Email', tile_phone:'Phone',
+    areas_eyebrow:'Main Areas', areas_h2:'What I <span style="background:linear-gradient(135deg,var(--blue-l),var(--green-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> bring.</span>',
+    area1_title:'Technical Drawing &amp; BIM', area2_title:'Programming &amp; Software',
+    area3_title:'Graphics &amp; Visual Design', area3_desc:'Canva · Visual communication',
+    area4_title:'Problem Solving &amp; Logic', area4_desc:'Algorithms · Data structures · Analysis',
+    geo_eyebrow:'Surveyor · Skills',
+    geo_autocad_desc:'Professional tool for 2D drafting and CAD design. Used for floor plans, architectural drawings and construction details with millimeter precision.',
+    geo_progecad_desc:'Alternative CAD software compatible with DWG formats. Used for technical projects, sections and geometric constructions with a professional workflow.',
+    geo_archicad_desc:'BIM software for 3D architectural modeling. Complex projects with real-time 3D visualization and automatic generation of plans and sections.',
+    geo_edificius_desc:'BIM software for architecture. Complete building project management: structure, systems and architecture in a single integrated environment.',
+    geo_canva_desc:'Visual design platform for professional presentations, social media and visual communication. Creativity applied to the technical and professional world.',
+    scroll_hint_long:'Scroll to explore',
+    dev_eyebrow:'University Studies', dev_h2:'BSc in <span style="background:linear-gradient(135deg,var(--blue),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Computer Science</span>',
+    nn_uni:'University of Bari Aldo Moro<br>🖥️ Department of Computer Science · Bari, Italy',
+    uni_year:'2nd Year — Ongoing', uni_degree:'BSc — Bachelor\'s Degree', uni_expected:'Expected 2026',
+    nn_c_desc:'Fundamental language for systems programming. Memory management, pointers and low-level algorithms.',
+    nn_cpp_desc:'Object-oriented programming with native performance. Classes, inheritance and polymorphism for complex software.',
+    nn_java_desc:'Robust and portable language. SOLID principles, design patterns and enterprise development with the JVM.',
+    nn_py_desc:'Versatile scripting for automation, data analysis and machine learning. Clean syntax and powerful libraries.',
+    nn_sql_desc:'Relational database management. Complex queries, JOINs, stored procedures and performance optimization.',
+    nn_html_desc:'Semantic web structure. HTML5, accessibility, forms, multimedia and W3C standards.',
+    nn_css_desc:'Responsive design, Flexbox, Grid, animations and transitions. From concept to pixel-perfect.',
+    contact_eyebrow:'Get in Touch', contact_h2:'Let\'s stay in <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> touch.</span>',
+    contact_sub:'Whether it\'s a collaboration, an opportunity or a chat — reach out anytime.',
+    avail:'Available for new opportunities'
+  },
+  de:{
+    nav_home:'🏠 Start', nav_about:'👤 Über mich', nav_geo:'📐 Vermesser', nav_dev:'💻 Entwickler', nav_contact:'✉️ Kontakt',
+    badge_geo:'📐 Vermesser', badge_cs:'💻 Informatik · 2. Jahr', badge_loc:'📍 Ostuni · Bari',
+    hero_desc:'Italienischer Vermessungstechniker &amp; Informatikstudent — zwischen Architektur und Code.',
+    hero_loc:'Ostuni (BR) — Apulien, Italien',
+    stat_age:'Jahre alt', stat_cad:'CAD/BIM Tools', stat_lang:'Sprachen',
+    cta_contact:'✉️ Kontakt', cta_skills:'📐 Skills ansehen',
+    scroll_hint:'Scrollen',
+    hs_eyebrow:'Curriculum Vitae', hs_big:'Entdecke meinen<br><em>Werdegang</em>', hs_sub:'Diplomierter Vermesser &amp; Informatikstudent.<br>Scrolle, um Kompetenzen, Projekte und Kontakte zu entdecken.',
+    about_eyebrow:'Über mich', about_h2:'Zwei <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Kompetenzen.</span>',
+    about_p1:'Ich bin <strong>Vincenzo Baccaro</strong>, ein junger italienischer Fachmann aus Ostuni an der Schnittstelle zwischen Bauwesen und Informatik. Nach meinem <strong style="color:var(--green-l)">Vermessungsdiplom</strong> habe ich mich für das Studium der <strong style="color:var(--blue-l)">Informatik</strong> an der Universität Bari entschieden, wo ich derzeit im zweiten Jahr bin.',
+    about_p2:'Meine Entschlossenheit treibt mich an, mich nie zufriedenzugeben: Ich verbinde die Präzision des technischen Zeichnens und der BIM-Modellierung mit der Kraft der Software. Ich bin äußerst dynamisch, mit einer soliden Arbeitsethik und einer natürlichen Begabung für Problemlösung.',
+    tile_residence:'Wohnort', tile_age:'Alter', tile_age_val:'20 Jahre',
+    tile_email:'E-Mail', tile_phone:'Telefon',
+    areas_eyebrow:'Schwerpunkte', areas_h2:'Was ich <span style="background:linear-gradient(135deg,var(--blue-l),var(--green-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> biete.</span>',
+    area1_title:'Technisches Zeichnen &amp; BIM', area2_title:'Programmierung &amp; Software',
+    area3_title:'Grafik &amp; Visual Design', area3_desc:'Canva · Visuelle Kommunikation',
+    area4_title:'Problemlösung &amp; Logik', area4_desc:'Algorithmen · Datenstrukturen · Analyse',
+    geo_eyebrow:'Vermesser · Kompetenzen',
+    geo_autocad_desc:'Professionelles Werkzeug für 2D-Zeichnungen und CAD-Design. Grundrisse, Architekturpläne und Baudetails mit Millimeterpräzision.',
+    geo_progecad_desc:'Alternative CAD-Software kompatibel mit DWG-Formaten. Technische Projekte, Schnitte und geometrische Konstruktionen.',
+    geo_archicad_desc:'BIM-Software für 3D-Architekturmodellierung. Komplexe Projekte mit Echtzeit-3D-Visualisierung.',
+    geo_edificius_desc:'BIM-Software für Architektur. Komplettes Gebäudemanagement: Struktur, Anlagen und Architektur.',
+    geo_canva_desc:'Visuelle Designplattform für professionelle Präsentationen, Social Media und visuelle Kommunikation.',
+    scroll_hint_long:'Scrollen zum Entdecken',
+    dev_eyebrow:'Universitätsstudium', dev_h2:'BSc in <span style="background:linear-gradient(135deg,var(--blue),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Informatik</span>',
+    nn_uni:'Universität Bari Aldo Moro<br>🖥️ Fachbereich Informatik · Bari, Italien',
+    uni_year:'2. Jahr — laufend', uni_degree:'BSc — Bachelor-Abschluss', uni_expected:'Voraussichtlich 2026',
+    nn_c_desc:'Grundlegende Sprache für Systemprogrammierung. Speicherverwaltung, Zeiger und Low-Level-Algorithmen.',
+    nn_cpp_desc:'Objektorientierte Programmierung mit nativer Performance. Klassen, Vererbung und Polymorphismus für komplexe Software.',
+    nn_java_desc:'Robuste und portable Sprache. SOLID-Prinzipien, Design Patterns und Enterprise-Entwicklung mit der JVM.',
+    nn_py_desc:'Vielseitiges Scripting für Automatisierung, Datenanalyse und maschinelles Lernen. Saubere Syntax und leistungsstarke Bibliotheken.',
+    nn_sql_desc:'Verwaltung relationaler Datenbanken. Komplexe Abfragen, JOINs, gespeicherte Prozeduren und Performance-Optimierung.',
+    nn_html_desc:'Semantische Webstruktur. HTML5, Barrierefreiheit, Formulare, Multimedia und W3C-Standards.',
+    nn_css_desc:'Responsives Design, Flexbox, Grid, Animationen und Übergänge. Vom Konzept zum pixelgenauen Ergebnis.',
+    contact_eyebrow:'Kontakt', contact_h2:'In <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> Kontakt bleiben.</span>',
+    contact_sub:'Ob Zusammenarbeit, eine Chance oder ein Gespräch — schreib mir jederzeit.',
+    avail:'Offen für neue Möglichkeiten'
+  },
+  fr:{
+    nav_home:'🏠 Accueil', nav_about:'👤 À propos', nav_geo:'📐 Géomètre', nav_dev:'💻 Développeur', nav_contact:'✉️ Contact',
+    badge_geo:'📐 Géomètre', badge_cs:'💻 Étudiant Info · Année 2', badge_loc:'📍 Ostuni · Bari',
+    hero_desc:'Géomètre italien &amp; Étudiant en Informatique — entre architecture et code.',
+    hero_loc:'Ostuni (BR) — Pouilles, Italie',
+    stat_age:'Ans', stat_cad:'Outils CAO/BIM', stat_lang:'Langages',
+    cta_contact:'✉️ Me contacter', cta_skills:'📐 Voir mes compétences',
+    scroll_hint:'Défiler',
+    hs_eyebrow:'Curriculum Vitae', hs_big:'Découvrez mon<br><em>parcours</em>', hs_sub:'Géomètre diplômé &amp; Étudiant en Informatique.<br>Défilez pour explorer compétences, projets et contacts.',
+    about_eyebrow:'À propos', about_h2:'Deux <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Compétences.</span>',
+    about_p1:'Je suis <strong>Vincenzo Baccaro</strong>, un jeune professionnel italien d\'Ostuni vivant à l\'intersection du monde technique de la construction et de l\'informatique. Après avoir obtenu mon <strong style="color:var(--green-l)">Diplôme de Géomètre</strong>, j\'ai choisi de faire évoluer mes compétences en m\'inscrivant en <strong style="color:var(--blue-l)">Informatique</strong> à l\'Université de Bari, où je suis actuellement en deuxième année.',
+    about_p2:'Ma détermination me pousse à ne jamais me contenter: j\'allie la précision du dessin technique et de la modélisation BIM à la puissance du logiciel. Je suis une personne extrêmement dynamique, avec une solide éthique de travail et une aptitude naturelle à la résolution de problèmes.',
+    tile_residence:'Résidence', tile_age:'Âge', tile_age_val:'20 ans',
+    tile_email:'E-mail', tile_phone:'Téléphone',
+    areas_eyebrow:'Domaines principaux', areas_h2:'Ce que j\'<span style="background:linear-gradient(135deg,var(--blue-l),var(--green-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> apporte.</span>',
+    area1_title:'Dessin Technique &amp; BIM', area2_title:'Programmation &amp; Logiciel',
+    area3_title:'Graphisme &amp; Design Visuel', area3_desc:'Canva · Communication visuelle',
+    area4_title:'Résolution de Problèmes &amp; Logique', area4_desc:'Algorithmes · Structures de données',
+    geo_eyebrow:'Géomètre · Compétences',
+    geo_autocad_desc:'Outil professionnel de dessin technique 2D et de conception CAO. Plans, dessins architecturaux et détails de construction avec précision millimétrique.',
+    geo_progecad_desc:'Logiciel CAO alternatif compatible avec les formats DWG. Projets techniques et constructions géométriques.',
+    geo_archicad_desc:'Logiciel BIM pour la modélisation architecturale 3D. Projets complexes avec visualisation 3D en temps réel.',
+    geo_edificius_desc:'Logiciel BIM pour l\'architecture. Gestion complète du projet de construction.',
+    geo_canva_desc:'Plateforme de design visuel pour présentations professionnelles et communication visuelle.',
+    scroll_hint_long:'Défiler pour explorer',
+    dev_eyebrow:'Études Universitaires', dev_h2:'Licence en <span style="background:linear-gradient(135deg,var(--blue),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Informatique</span>',
+    nn_uni:'Université de Bari Aldo Moro<br>🖥️ Département d\'Informatique · Bari, Italie',
+    uni_year:'2ème année — en cours', uni_degree:'Licence — Bachelor', uni_expected:'Prévu 2026',
+    nn_c_desc:'Langage fondamental pour la programmation système. Gestion de la mémoire, pointeurs et algorithmes bas niveau.',
+    nn_cpp_desc:'Programmation orientée objet avec performances natives. Classes, héritage et polymorphisme pour logiciels complexes.',
+    nn_java_desc:'Langage robuste et portable. Principes SOLID, design patterns et développement enterprise avec la JVM.',
+    nn_py_desc:'Scripting polyvalent pour l\'automatisation, l\'analyse de données et le machine learning. Syntaxe propre et bibliothèques puissantes.',
+    nn_sql_desc:'Gestion de bases de données relationnelles. Requêtes complexes, JOINs, procédures stockées et optimisation des performances.',
+    nn_html_desc:'Structure sémantique du web. HTML5, accessibilité, formulaires, multimédia et standards W3C.',
+    nn_css_desc:'Design responsive, Flexbox, Grid, animations et transitions. Du concept au pixel-perfect.',
+    contact_eyebrow:'Me contacter', contact_h2:'Restons en <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> contact.</span>',
+    contact_sub:'Que ce soit une collaboration ou une conversation — écrivez-moi quand vous voulez.',
+    avail:'Disponible pour de nouvelles opportunités'
+  },
+  es:{
+    nav_home:'🏠 Inicio', nav_about:'👤 Sobre mí', nav_geo:'📐 Topógrafo', nav_dev:'💻 Desarrollador', nav_contact:'✉️ Contacto',
+    badge_geo:'📐 Topógrafo', badge_cs:'💻 Estudiante Info · Año 2', badge_loc:'📍 Ostuni · Bari',
+    hero_desc:'Topógrafo italiano &amp; Estudiante de Informática — entre arquitectura y código.',
+    hero_loc:'Ostuni (BR) — Puglia, Italia',
+    stat_age:'Años', stat_cad:'Herramientas CAD/BIM', stat_lang:'Lenguajes',
+    cta_contact:'✉️ Contáctame', cta_skills:'📐 Ver Skills',
+    scroll_hint:'Desplazar',
+    hs_eyebrow:'Curriculum Vitae', hs_big:'Descubre mi<br><em>trayectoria</em>', hs_sub:'Topógrafo diplomado &amp; Estudiante de Informática.<br>Desplázate para explorar competencias, proyectos y contactos.',
+    about_eyebrow:'Sobre mí', about_h2:'Dos <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Competencias.</span>',
+    about_p1:'Soy <strong>Vincenzo Baccaro</strong>, un joven profesional italiano de Ostuni que vive en la intersección entre el mundo técnico de la construcción y la informática. Tras obtener mi <strong style="color:var(--green-l)">Diploma de Topógrafo</strong>, decidí evolucionar mis competencias inscribiéndome en <strong style="color:var(--blue-l)">Informática</strong> en la Universidad de Bari, donde actualmente curso el segundo año.',
+    about_p2:'Mi determinación me impulsa a no conformarme: combino la precisión del dibujo técnico y el modelado BIM con el poder del software. Soy una persona extremadamente dinámica, con una sólida ética de trabajo y una aptitud natural para la resolución de problemas.',
+    tile_residence:'Residencia', tile_age:'Edad', tile_age_val:'20 años',
+    tile_email:'Correo', tile_phone:'Teléfono',
+    areas_eyebrow:'Áreas Principales', areas_h2:'Lo que <span style="background:linear-gradient(135deg,var(--blue-l),var(--green-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> ofrezco.</span>',
+    area1_title:'Dibujo Técnico &amp; BIM', area2_title:'Programación &amp; Software',
+    area3_title:'Gráfica &amp; Diseño Visual', area3_desc:'Canva · Comunicación visual',
+    area4_title:'Resolución de Problemas &amp; Lógica', area4_desc:'Algoritmos · Estructuras de datos',
+    geo_eyebrow:'Topógrafo · Competencias',
+    geo_autocad_desc:'Herramienta profesional de diseño técnico 2D y diseño CAD. Planos, dibujos arquitectónicos y detalles de construcción con precisión milimétrica.',
+    geo_progecad_desc:'Software CAD alternativo compatible con formatos DWG. Proyectos técnicos y construcciones geométricas.',
+    geo_archicad_desc:'Software BIM para modelado arquitectónico 3D. Proyectos complejos con visualización 3D en tiempo real.',
+    geo_edificius_desc:'Software BIM para arquitectura. Gestión completa del proyecto de construcción.',
+    geo_canva_desc:'Plataforma de diseño visual para presentaciones profesionales y comunicación visual.',
+    scroll_hint_long:'Desliza para explorar',
+    dev_eyebrow:'Estudios Universitarios', dev_h2:'Grado en <span style="background:linear-gradient(135deg,var(--blue),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Informática</span>',
+    nn_uni:'Universidad de Bari Aldo Moro<br>🖥️ Departamento de Informática · Bari, Italia',
+    uni_year:'2.º año — en curso', uni_degree:'Grado — Licenciatura', uni_expected:'Previsto 2026',
+    nn_c_desc:'Lenguaje fundamental para la programación de sistemas. Gestión de memoria, punteros y algoritmos de bajo nivel.',
+    nn_cpp_desc:'Programación orientada a objetos con rendimiento nativo. Clases, herencia y polimorfismo para software complejo.',
+    nn_java_desc:'Lenguaje robusto y portable. Principios SOLID, patrones de diseño y desarrollo enterprise con la JVM.',
+    nn_py_desc:'Scripting versátil para automatización, análisis de datos y machine learning. Sintaxis limpia y bibliotecas potentes.',
+    nn_sql_desc:'Gestión de bases de datos relacionales. Consultas complejas, JOINs, procedimientos almacenados y optimización del rendimiento.',
+    nn_html_desc:'Estructura semántica para la web. HTML5, accesibilidad, formularios, multimedia y estándares W3C.',
+    nn_css_desc:'Diseño responsive, Flexbox, Grid, animaciones y transiciones. Del concepto al pixel-perfect.',
+    contact_eyebrow:'Contáctame', contact_h2:'Mantengamos el <span style="background:linear-gradient(135deg,var(--green-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"> contacto.</span>',
+    contact_sub:'Ya sea una colaboración o una conversación — escríbeme cuando quieras.',
+    avail:'Disponible para nuevas oportunidades'
+  }
+};
+
+function setLang(code) {
+  const dict = T[code];
+  if (!dict) return;
+  document.documentElement.lang = code;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('#lang-sw .lb').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(code));
+  });
+  try { localStorage.setItem('cv_lang', code); } catch(e) {}
+  window.dispatchEvent(new CustomEvent('langchange', { detail: code }));
+}
+
+(function initLang() {
+  let stored;
+  try { stored = localStorage.getItem('cv_lang'); } catch(e) {}
+  const browserLang = (navigator.language || '').slice(0,2).toLowerCase();
+  const preferred = stored || (T[browserLang] ? browserLang : 'en');
+  setLang(preferred);
+})();
+</script>
+
+<!-- ═══════════ NEURAL NEXUS · 3D ENGINE ═══════════ -->
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+
+(function initNeuralNexus() {
+  const section = document.getElementById('s3');
+  const container = document.getElementById('nn-container');
+  if (!section || !container) return;
+
+  /* ── Language color map ── */
+  const LANGS = [
+    { name:'INIT',   color:'#00ffff' },  // slide 0 intro
+    { name:'C',      color:'#00ffff' },  // cyan
+    { name:'C++',    color:'#ff00ff' },  // magenta
+    { name:'JAVA',   color:'#ff8800' },  // orange
+    { name:'PYTHON', color:'#00ff88' },  // green
+    { name:'MYSQL',  color:'#8888ff' },  // periwinkle
+    { name:'HTML',   color:'#ff4422' },  // red-orange
+    { name:'CSS',    color:'#4466ff' },  // blue
+  ];
+  const SLIDES = 8;
+  const NODE_COUNT = 22000;
+  const TRAIL_COUNT = 6000;
+
+  let scene, camera, renderer, composer, dataNodes, trailSystem, bgNodes;
+  let time = 0;
+  let currentSlide = 0;
+  let currentColor = new THREE.Color(LANGS[0].color);
+  let targetColor = new THREE.Color(LANGS[0].color);
+
+  /* ── Color scheme generator ── */
+  function genScheme(hex) {
+    const base = new THREE.Color(hex);
+    const hsl = base.getHSL({h:0,s:0,l:0});
+    const arr = [];
+    for (let i = 0; i < 10; i++) {
+      const h = (hsl.h + (i-5) * 0.03) % 1;
+      const s = Math.min(1, Math.max(0, hsl.s + (i-5) * 0.02));
+      const l = Math.min(1, Math.max(0, hsl.l + (i-5) * 0.03));
+      arr.push(new THREE.Color().setHSL(h < 0 ? h + 1 : h, s, l));
+    }
+    return arr;
+  }
+
+  let colorScheme = genScheme(LANGS[0].color);
+
+  /* ── Shape generators ── */
+  function genHarmonicSphere(i, count) {
+    const t = i / count;
+    const phi = Math.acos(1 - 2 * t);
+    const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+    const r = 80 * (1 + 0.2 * (Math.sin(5*phi)*Math.cos(3*theta) + Math.cos(4*phi)*Math.sin(2*theta)));
+    return new THREE.Vector3(r*Math.sin(phi)*Math.cos(theta), r*Math.sin(phi)*Math.sin(theta), r*Math.cos(phi));
+  }
+  function genToroid(i, count) {
+    const t = i / count;
+    const theta = t * Math.PI * 2;
+    const phi = theta * 10 + Math.PI * (1+Math.sqrt(5)) * t * 10;
+    const major = 70, minor = 25 + Math.sin(theta*3)*5;
+    return new THREE.Vector3(
+      (major + minor*Math.cos(phi))*Math.cos(theta),
+      (major + minor*Math.cos(phi))*Math.sin(theta),
+      minor*Math.sin(phi) + Math.cos(theta*4)*10
+    );
+  }
+  function genNebula(i, count) {
+    const coreCount = Math.floor(count * 0.25);
+    if (i < coreCount) {
+      const t = i / coreCount;
+      const phi = Math.acos(1-2*t);
+      const theta = Math.PI*(1+Math.sqrt(5))*i + Math.sin(t*10)*0.5;
+      const r = 25*Math.pow(Math.random(),1.5);
+      return new THREE.Vector3(r*Math.sin(phi)*Math.cos(theta), r*Math.sin(phi)*Math.sin(theta), r*Math.cos(phi));
+    }
+    const ringP = count - coreCount;
+    const ri = i - coreCount;
+    const numR = 8;
+    const rn = Math.floor(ri/(ringP/numR));
+    const nir = ri % Math.floor(ringP/numR);
+    const nirt = nir / Math.floor(ringP/numR);
+    const angle = nirt * Math.PI * 2 + Math.sin(rn*2)*0.3;
+    const br = 35 + rn*10 + Math.sin(angle*4)*5;
+    const tilt = (rn%2===0?1:-1)*(Math.PI/6+rn*Math.PI/15);
+    const aa = rn*Math.PI/4;
+    const axis = new THREE.Vector3(Math.sin(aa),Math.cos(aa),Math.sin(aa*2)).normalize();
+    const pos = new THREE.Vector3(Math.cos(angle)*br,0,Math.sin(angle)*br);
+    pos.applyAxisAngle(axis, tilt);
+    return pos;
+  }
+
+  const shapes = [genHarmonicSphere, genToroid, genNebula];
+  let currentShape = 0;
+
+  /* ── Init ── */
+  scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x000814, 0.0005);
+
+  camera = new THREE.PerspectiveCamera(75, container.clientWidth/container.clientHeight, 0.1, 2500);
+  camera.position.set(0, 0, 155);
+
+  renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true, powerPreference:'high-performance' });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+  container.appendChild(renderer.domElement);
+
+  /* Post-processing */
+  composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloom = new UnrealBloomPass(new THREE.Vector2(container.clientWidth, container.clientHeight), 0.5, 0.6, 0.8);
+  composer.addPass(bloom);
+  const distortion = {
+    uniforms:{ tDiffuse:{value:null}, time:{value:0}, intensity:{value:0.015} },
+    vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+    fragmentShader:'uniform sampler2D tDiffuse;uniform float time;uniform float intensity;varying vec2 vUv;void main(){vec2 uv=vUv;uv.x+=sin(uv.y*10.0+time)*intensity;uv.y+=cos(uv.x*10.0+time)*intensity;gl_FragColor=texture2D(tDiffuse,uv);}'
+  };
+  composer.addPass(new ShaderPass(distortion));
+  composer.addPass(new OutputPass());
+
+  /* ── Particle texture ── */
+  function makeTex(sz) {
+    const c = document.createElement('canvas'); c.width=c.height=sz;
+    const ctx = c.getContext('2d');
+    const g = ctx.createRadialGradient(sz/2,sz/2,0,sz/2,sz/2,sz/2);
+    g.addColorStop(0,'rgba(255,255,255,1)');
+    g.addColorStop(0.3,'rgba(255,255,255,0.7)');
+    g.addColorStop(0.6,'rgba(200,255,255,0.4)');
+    g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,sz,sz);
+    return new THREE.CanvasTexture(c);
+  }
+
+  /* ── Data nodes ── */
+  const geo = new THREE.BufferGeometry();
+  const pos = new Float32Array(NODE_COUNT*3);
+  const col = new Float32Array(NODE_COUNT*3);
+  const siz = new Float32Array(NODE_COUNT);
+  for (let i = 0; i < NODE_COUNT; i++) {
+    const p = genHarmonicSphere(i, NODE_COUNT);
+    pos[i*3]=p.x; pos[i*3+1]=p.y; pos[i*3+2]=p.z;
+    const c = colorScheme[Math.floor(Math.random()*colorScheme.length)];
+    col[i*3]=c.r; col[i*3+1]=c.g; col[i*3+2]=c.b;
+    siz[i] = 1.0 + Math.random()*2.5;
+  }
+  geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col,3));
+  geo.setAttribute('size', new THREE.BufferAttribute(siz,1));
+  geo.userData.currentColors = new Float32Array(col);
+
+  const nodeMat = new THREE.ShaderMaterial({
+    uniforms:{ time:{value:0}, textureMap:{value:makeTex(256)}, glowIntensity:{value:1.0} },
+    vertexShader:`
+      attribute vec3 color; attribute float size;
+      varying vec3 vColor; uniform float time; uniform float glowIntensity;
+      void main(){
+        vColor=color*(1.0+0.2*sin(time*2.0+position.y*0.05))*glowIntensity;
+        vec4 mv=modelViewMatrix*vec4(position,1.0);
+        gl_PointSize=size*(350.0/-mv.z)*(1.0+0.1*sin(time+position.x));
+        gl_Position=projectionMatrix*mv;
+      }`,
+    fragmentShader:`
+      uniform sampler2D textureMap; varying vec3 vColor;
+      void main(){
+        vec2 uv=gl_PointCoord-vec2(0.5); float r=length(uv)*2.0;
+        vec4 tex=texture2D(textureMap,gl_PointCoord);
+        float alpha=tex.a*(1.0-smoothstep(0.8,1.0,r));
+        gl_FragColor=vec4(vColor,alpha);
+      }`,
+    transparent:true, blending:THREE.AdditiveBlending, depthWrite:false
+  });
+  dataNodes = new THREE.Points(geo, nodeMat);
+  scene.add(dataNodes);
+
+  /* ── Trail system ── */
+  const tGeo = new THREE.BufferGeometry();
+  const tPos = new Float32Array(TRAIL_COUNT*3);
+  const tCol = new Float32Array(TRAIL_COUNT*3);
+  const tSiz = new Float32Array(TRAIL_COUNT);
+  const tOpa = new Float32Array(TRAIL_COUNT);
+  for (let i = 0; i < TRAIL_COUNT; i++) {
+    tPos[i*3]=(Math.random()-.5)*120; tPos[i*3+1]=(Math.random()-.5)*120; tPos[i*3+2]=(Math.random()-.5)*120;
+    const c = colorScheme[Math.floor(Math.random()*colorScheme.length)];
+    tCol[i*3]=c.r; tCol[i*3+1]=c.g; tCol[i*3+2]=c.b;
+    tSiz[i]=Math.random()*2+0.8; tOpa[i]=Math.random()*0.6+0.3;
+  }
+  tGeo.setAttribute('position',new THREE.BufferAttribute(tPos,3));
+  tGeo.setAttribute('color',new THREE.BufferAttribute(tCol,3));
+  tGeo.setAttribute('size',new THREE.BufferAttribute(tSiz,1));
+  tGeo.setAttribute('opacity',new THREE.BufferAttribute(tOpa,1));
+  const trailTex = (function(){
+    const c=document.createElement('canvas'); c.width=c.height=64;
+    const ctx=c.getContext('2d');
+    const g=ctx.createRadialGradient(32,32,0,32,32,32);
+    g.addColorStop(0,'rgba(255,255,255,1)'); g.addColorStop(0.4,'rgba(255,255,255,0.5)');
+    g.addColorStop(0.8,'rgba(255,255,255,0.2)'); g.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,64,64);
+    return new THREE.CanvasTexture(c);
+  })();
+  const tMat = new THREE.ShaderMaterial({
+    uniforms:{ time:{value:0}, textureMap:{value:trailTex} },
+    vertexShader:`
+      attribute vec3 color; attribute float size; attribute float opacity;
+      varying vec3 vColor; varying float vOpacity; uniform float time;
+      void main(){
+        vColor=color; vOpacity=opacity*(0.5+0.5*sin(time+position.x*0.1));
+        vec4 mv=modelViewMatrix*vec4(position,1.0);
+        gl_PointSize=size*(300.0/-mv.z);
+        gl_Position=projectionMatrix*mv;
+      }`,
+    fragmentShader:`
+      uniform sampler2D textureMap; varying vec3 vColor; varying float vOpacity;
+      void main(){
+        vec4 tex=texture2D(textureMap,gl_PointCoord);
+        gl_FragColor=vec4(vColor*tex.rgb,tex.a*vOpacity);
+      }`,
+    transparent:true, blending:THREE.AdditiveBlending, depthWrite:false
+  });
+  trailSystem = new THREE.Points(tGeo, tMat);
+  scene.add(trailSystem);
+
+  /* ── Background stars ── */
+  const bGeo = new THREE.BufferGeometry();
+  const bCount = 2000;
+  const bPos = new Float32Array(bCount*3), bCol = new Float32Array(bCount*3);
+  for (let i = 0; i < bCount; i++) {
+    const r = 250+Math.random()*350;
+    const phi = Math.random()*Math.PI*2, theta = Math.random()*Math.PI;
+    bPos[i*3]=r*Math.sin(theta)*Math.cos(phi);
+    bPos[i*3+1]=r*Math.sin(theta)*Math.sin(phi);
+    bPos[i*3+2]=r*Math.cos(theta);
+    const inten = Math.random()*0.4+0.2;
+    bCol[i*3]=inten*0.3; bCol[i*3+1]=inten*0.4; bCol[i*3+2]=inten*0.6;
+  }
+  bGeo.setAttribute('position',new THREE.BufferAttribute(bPos,3));
+  bGeo.setAttribute('color',new THREE.BufferAttribute(bCol,3));
+  bgNodes = new THREE.Points(bGeo, new THREE.PointsMaterial({
+    size:1.5,vertexColors:true,transparent:true,opacity:0.5,blending:THREE.AdditiveBlending,depthWrite:false
+  }));
+  scene.add(bgNodes);
+
+  /* ── Color transition ── */
+  let isTransforming = false, transformProgress = 0;
+  let fromPositions, toPositions, fromColors, toColors;
+
+  function applyColorScheme(scheme) {
+    const colors = dataNodes.geometry.attributes.color.array;
+    for (let i = 0; i < NODE_COUNT; i++) {
+      const c = scheme[Math.floor(Math.random()*scheme.length)];
+      const b = 0.8 + Math.random()*0.7;
+      colors[i*3]=c.r*b; colors[i*3+1]=c.g*b; colors[i*3+2]=c.b*b;
+    }
+    dataNodes.geometry.attributes.color.needsUpdate = true;
+    dataNodes.geometry.userData.currentColors = new Float32Array(colors);
+
+    const tc = trailSystem.geometry.attributes.color.array;
+    for (let i = 0; i < TRAIL_COUNT; i++) {
+      const c = scheme[Math.floor(Math.random()*scheme.length)];
+      tc[i*3]=c.r; tc[i*3+1]=c.g; tc[i*3+2]=c.b;
+    }
+    trailSystem.geometry.attributes.color.needsUpdate = true;
+  }
+
+  function morphShape(newShapeIdx) {
+    if (isTransforming) return;
+    const newShape = shapes[newShapeIdx % shapes.length];
+    const positions = dataNodes.geometry.attributes.position.array;
+    fromPositions = new Float32Array(positions);
+    toPositions = new Float32Array(positions.length);
+    fromColors = new Float32Array(dataNodes.geometry.userData.currentColors);
+    const newScheme = colorScheme;
+    toColors = new Float32Array(fromColors.length);
+    for (let i = 0; i < NODE_COUNT; i++) {
+      const p = newShape(i, NODE_COUNT);
+      toPositions[i*3]=p.x; toPositions[i*3+1]=p.y; toPositions[i*3+2]=p.z;
+      const c = newScheme[Math.floor(Math.random()*newScheme.length)];
+      const b = 0.8 + Math.random()*0.7;
+      toColors[i*3]=c.r*b; toColors[i*3+1]=c.g*b; toColors[i*3+2]=c.b*b;
+    }
+    isTransforming = true;
+    transformProgress = 0;
+  }
+
+  /* ── Update CSS custom prop for HUD ── */
+  function setCSSColor(hex) {
+    const sticky = document.querySelector('.nn-sticky');
+    if (sticky) sticky.style.setProperty('--nn-color', hex);
+  }
+
+  /* ── Typewriter ── */
+  let twTimer = null;
+  const descTexts = new Map();
+  document.querySelectorAll('.nn-lang-desc').forEach(el => {
+    descTexts.set(el, el.textContent);
+  });
+  function refreshDescCache() {
+    document.querySelectorAll('.nn-lang-desc').forEach(el => {
+      descTexts.set(el, el.textContent);
+    });
+  }
+  window.addEventListener('langchange', () => {
+    refreshDescCache();
+    // Re-type the currently active slide description
+    if (prevSlide >= 0) {
+      const activeSlide = document.getElementById('nn-slide-' + prevSlide);
+      if (activeSlide) {
+        const desc = activeSlide.querySelector('.nn-lang-desc');
+        if (desc) typewrite(desc);
+      }
+    }
+  });
+  function typewrite(el) {
+    if (twTimer) { clearInterval(twTimer); twTimer = null; }
+    const full = descTexts.get(el);
+    if (!full) return;
+    el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'nn-tw-cursor';
+    el.appendChild(cursor);
+    let idx = 0;
+    twTimer = setInterval(() => {
+      if (idx < full.length) {
+        el.insertBefore(document.createTextNode(full[idx]), cursor);
+        idx++;
+      } else {
+        clearInterval(twTimer); twTimer = null;
+        setTimeout(() => { if (cursor.parentNode) cursor.remove(); }, 2000);
+      }
+    }, 25);
+  }
+
+  /* ── Scroll driver ── */
+  const slides = [];
+  for (let i = 0; i < SLIDES; i++) slides.push(document.getElementById('nn-slide-' + i));
+  const dots = document.querySelectorAll('.nn-dot');
+  const langDisplay = document.getElementById('nn-lang-display');
+  let prevSlide = -1;
+
+  function driveScroll() {
+    const rect = section.getBoundingClientRect();
+    const total = section.offsetHeight - window.innerHeight;
+    if (total <= 0) return;
+    const progress = Math.max(0, Math.min(-rect.top / total, 1));
+    const slideIdx = Math.min(Math.floor(progress * SLIDES), SLIDES - 1);
+
+    if (slideIdx !== prevSlide) {
+      prevSlide = slideIdx;
+      slides.forEach((s,i) => { if(s) s.classList.toggle('active', i === slideIdx); });
+      dots.forEach((d,i) => d.classList.toggle('active', i === slideIdx));
+
+      const lang = LANGS[slideIdx];
+      targetColor.set(lang.color);
+      colorScheme = genScheme(lang.color);
+      applyColorScheme(colorScheme);
+      setCSSColor(lang.color);
+      if (langDisplay) langDisplay.textContent = lang.name;
+
+      // Morph shape every ~3 slides
+      const newShape = Math.floor(slideIdx / 3) % shapes.length;
+      if (newShape !== currentShape) {
+        currentShape = newShape;
+        morphShape(newShape);
+      }
+
+      // Animate skill bar for active slide
+      const fill = slides[slideIdx] && slides[slideIdx].querySelector('.nn-lang-fill');
+      if (fill) {
+        const w = fill.getAttribute('data-w');
+        if (w) fill.style.width = w + '%';
+      }
+      // Reset other bars
+      slides.forEach((s,i) => {
+        if (i !== slideIdx && s) {
+          const f = s.querySelector('.nn-lang-fill');
+          if (f) f.style.width = '0';
+          // Reset non-active descriptions
+          const d = s.querySelector('.nn-lang-desc');
+          if (d) { const txt = descTexts.get(d); if (txt) d.textContent = ''; }
+        }
+      });
+
+      // Typewriter on active description
+      const desc = slides[slideIdx] && slides[slideIdx].querySelector('.nn-lang-desc');
+      if (desc) typewrite(desc);
+    }
+  }
+
+  /* ── Animate trails ── */
+  function animTrails() {
+    if (!trailSystem) return;
+    const p = trailSystem.geometry.attributes.position.array;
+    const o = trailSystem.geometry.attributes.opacity.array;
+    for (let i = 0; i < TRAIL_COUNT; i++) {
+      const ix = i*3;
+      p[ix+1] += 0.3;
+      if (p[ix+1] > 70) p[ix+1] = -70;
+      p[ix] += Math.sin(time*2.2+i*0.12)*0.1;
+      p[ix+2] += Math.cos(time*2.0+i*0.12)*0.1;
+      o[i] = 0.4 + Math.sin(time*3.5+i*0.12)*0.35;
+    }
+    trailSystem.geometry.attributes.position.needsUpdate = true;
+    trailSystem.geometry.attributes.opacity.needsUpdate = true;
+    tMat.uniforms.time.value = time;
+  }
+
+  /* ── Animate data flow (idle rotation) ── */
+  function animFlow() {
+    if (isTransforming) return;
+    const p = dataNodes.geometry.attributes.position.array;
+    for (let i = 0; i < NODE_COUNT; i++) {
+      const ix = i*3;
+      const x = p[ix], z = p[ix+2];
+      p[ix] = x*Math.cos(0.004)-z*Math.sin(0.004);
+      p[ix+2] = x*Math.sin(0.004)+z*Math.cos(0.004);
+    }
+    dataNodes.geometry.attributes.position.needsUpdate = true;
+  }
+
+  /* ── Main loop ── */
+  function loop() {
+    requestAnimationFrame(loop);
+    time += 0.012;
+
+    driveScroll();
+    currentColor.lerp(targetColor, 0.05);
+
+    if (bgNodes) { bgNodes.rotation.y += 0.0004; bgNodes.rotation.x += 0.00015; }
+
+    if (isTransforming) {
+      transformProgress += 0.018;
+      const positions = dataNodes.geometry.attributes.position.array;
+      const colors = dataNodes.geometry.attributes.color.array;
+      if (transformProgress >= 1) {
+        positions.set(toPositions); colors.set(toColors);
+        dataNodes.geometry.userData.currentColors = new Float32Array(toColors);
+        isTransforming = false;
+      } else {
+        const t = transformProgress;
+        const ease = t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
+        for (let i = 0; i < positions.length; i++) {
+          positions[i] = fromPositions[i]*(1-ease)+toPositions[i]*ease;
+          colors[i] = fromColors[i]*(1-ease)+toColors[i]*ease;
+        }
+      }
+      dataNodes.geometry.attributes.position.needsUpdate = true;
+      dataNodes.geometry.attributes.color.needsUpdate = true;
+    } else {
+      animFlow();
+    }
+
+    animTrails();
+    nodeMat.uniforms.time.value = time;
+    composer.passes[2].uniforms.time.value = time;
+    composer.render();
+  }
+
+  window.addEventListener('resize', () => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    composer.setSize(container.clientWidth, container.clientHeight);
+  });
+
+  window.addEventListener('scroll', driveScroll, { passive:true });
+  driveScroll();
+  loop();
+})();
+</script>
+
+</body>
+</html>
